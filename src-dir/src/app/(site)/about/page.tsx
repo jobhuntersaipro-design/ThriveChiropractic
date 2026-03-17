@@ -116,7 +116,7 @@ export default function AboutPage() {
                 >
                   {point.title}
                 </h3>
-                <p className="text-muted-green text-sm leading-relaxed">{point.description}</p>
+                <p className="text-muted-green text-base leading-relaxed">{point.description}</p>
               </div>
             ))}
           </div>
@@ -154,7 +154,7 @@ export default function AboutPage() {
                     {member.name}
                   </h3>
                   <p className="text-sage text-sm font-medium">{member.role}</p>
-                  <p className="text-muted-green text-xs mt-1">{member.credentials}</p>
+                  <p className="text-muted-green text-sm mt-1">{member.credentials}</p>
                 </div>
 
                 {/* Bio & quote */}
@@ -212,7 +212,7 @@ export default function AboutPage() {
                 <Users className="w-5 h-5 text-gold shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-white font-semibold mb-1">{value.title}</h4>
-                  <p className="text-white/60 text-sm leading-relaxed">{value.description}</p>
+                  <p className="text-white/60 text-base leading-relaxed">{value.description}</p>
                 </div>
               </div>
             ))}
@@ -238,12 +238,12 @@ export default function AboutPage() {
               <h3 className="font-semibold text-charcoal mb-2">
                 Thrive Gonstead Chiropractic @ Rimbayu
               </h3>
-              <p className="text-sage text-xs font-medium mt-1">View on Google Maps &rarr;</p>
+              <p className="text-sage text-sm font-medium mt-1">View on Google Maps &rarr;</p>
             </a>
             <div className="bg-white rounded-2xl p-8 border border-border-warm flex flex-col items-center text-center">
               <Phone className="w-6 h-6 text-sage mb-3" />
               <h3 className="font-semibold text-charcoal mb-2">Opening Hours</h3>
-              <div className="text-muted-green text-sm leading-relaxed space-y-1">
+              <div className="text-muted-green text-base leading-relaxed space-y-1">
                 <p>Tuesday – Thursday: 10am – 8pm</p>
                 <p>Friday – Sunday: 10am – 6pm</p>
                 <p>Monday: Closed</p>

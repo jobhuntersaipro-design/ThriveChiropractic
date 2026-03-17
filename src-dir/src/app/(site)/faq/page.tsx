@@ -162,16 +162,17 @@ export default function FaqPage() {
                   {category.title}
                 </h2>
                 <div className="w-10 h-px bg-gold mb-6" />
-                <Accordion className="space-y-2">
+                <Accordion className="space-y-2" defaultValue={[0]}>
                   {category.items.map((item, i) => (
                     <AccordionItem
                       key={i}
+                      value={i}
                       className="border border-border-warm rounded-xl px-5 bg-white data-open:border-sage"
                     >
-                      <AccordionTrigger className="text-left text-charcoal font-medium hover:text-sage hover:no-underline py-4">
+                      <AccordionTrigger className="text-left text-charcoal font-medium text-lg hover:text-sage hover:no-underline py-4">
                         {item.q}
                       </AccordionTrigger>
-                      <AccordionContent className="text-muted-green text-sm leading-relaxed pb-5">
+                      <AccordionContent className="text-muted-green text-base leading-relaxed pb-5">
                         {item.a}
                       </AccordionContent>
                     </AccordionItem>

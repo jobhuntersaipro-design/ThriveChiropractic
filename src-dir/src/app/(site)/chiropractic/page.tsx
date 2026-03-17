@@ -90,7 +90,7 @@ export default function ChiropracticPage() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 mt-16 space-y-6 text-white/80 text-lg leading-relaxed">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 mt-16 space-y-6 text-white/80 text-lg leading-relaxed text-left">
           <p>
             The spine houses and protects the spinal cord — the main communication highway between your brain and every organ, tissue, and cell in your body. When vertebrae shift out of their optimal position (subluxation), they can irritate or compress the surrounding nerves, disrupting this vital communication and leading to pain, dysfunction, and diminished overall health.
           </p>
