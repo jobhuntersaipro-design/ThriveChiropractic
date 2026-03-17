@@ -3,7 +3,8 @@ import HeroSlider from '@/components/home/HeroSlider'
 import ConditionsGrid from '@/components/home/ConditionsGrid'
 import TreatmentRoadmap from '@/components/home/TreatmentRoadmap'
 import BookButton from '@/components/shared/BookButton'
-import { CheckCircle, Award, Clock } from 'lucide-react'
+import { CheckCircle, Award, Clock, MapPin, Phone } from 'lucide-react'
+import SectionHeading from '@/components/shared/SectionHeading'
 
 const gonsteadPoints = [
   {
@@ -130,6 +131,57 @@ export default function Home() {
             Join hundreds of patients who have found lasting relief and renewed vitality through Gonstead chiropractic care at Thrive.
           </p>
           <BookButton variant="gold" size="lg" />
+        </div>
+      </section>
+
+      {/* Section G — Location & Contact */}
+      <section className="py-24 bg-cream">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <SectionHeading
+            eyebrow="Find Us"
+            heading="Location & Contact"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+            <a
+              href="https://maps.app.goo.gl/Kuy31p4jtpyjbtKe7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white rounded-2xl p-8 border border-border-warm flex flex-col items-center text-center hover:border-sage/40 transition-colors"
+            >
+              <MapPin className="w-6 h-6 text-sage mb-3" />
+              <h3 className="font-semibold text-charcoal mb-2">
+                Thrive Gonstead Chiropractic @ Rimbayu
+              </h3>
+              <p className="text-sage text-sm font-medium mt-1">View on Google Maps &rarr;</p>
+            </a>
+            <div className="bg-white rounded-2xl p-8 border border-border-warm flex flex-col items-center text-center">
+              <Phone className="w-6 h-6 text-sage mb-3" />
+              <h3 className="font-semibold text-charcoal mb-2">Opening Hours</h3>
+              <div className="text-muted-green text-base leading-relaxed space-y-1">
+                <p>Tuesday – Thursday: 10am – 8pm</p>
+                <p>Friday – Sunday: 10am – 6pm</p>
+                <p>Monday: Closed</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Embedded Google Map */}
+          <div className="mt-8 rounded-2xl overflow-hidden border border-border-warm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.5!2d101.5448643!3d2.9473265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb1010cae254b%3A0xd1865c2a54958996!2sThrive%20Gonstead%20Chiropractic%20%40%20Rimbayu!5e0!3m2!1sen!2smy!4v1"
+              width="100%"
+              height="350"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Thrive Gonstead Chiropractic @ Rimbayu location"
+            />
+          </div>
+
+          <div className="mt-10">
+            <BookButton size="lg" />
+          </div>
         </div>
       </section>
     </>
