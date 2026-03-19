@@ -60,7 +60,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm font-medium text-charcoal transition-colors duration-200 hover:text-sage"
+                className="text-sm font-medium text-charcoal transition-colors duration-200 hover:text-sage relative after:absolute after:left-0 after:bottom-[-4px] after:h-[2px] after:w-0 after:bg-sage after:transition-all after:duration-200 hover:after:w-full"
               >
                 {link.label}
               </Link>
