@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import fs from 'fs/promises'
-import path from 'path'
 import { reader } from '@/lib/reader'
 import PostCard from '@/components/blog/PostCard'
 
@@ -8,6 +6,8 @@ function getReadingTime(content: string): number {
   const words = content.trim().split(/\s+/).length
   return Math.max(1, Math.round(words / 150))
 }
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Blog — Thrive Chiropractic',
@@ -22,18 +22,9 @@ export default async function BlogPage() {
       const post = await reader.collections.posts.read(slug)
       if (!post) return null
 
-      const filePath = path.join(
-        process.cwd(),
-        'src/content/posts',
-        slug,
-        'index.mdoc'
-      )
-      let readingTime = 1
-      try {
-        const raw = await fs.readFile(filePath, 'utf-8')
-        const body = raw.replace(/^---[\s\S]*?---/, '').trim()
-        readingTime = getReadingTime(body)
-      } catch {}
+      const content = await post.content()
+      const text = content.map((node: any) => JSON.stringify(node)).join(' ')
+      const readingTime = getReadingTime(text)
 
       return {
         slug,

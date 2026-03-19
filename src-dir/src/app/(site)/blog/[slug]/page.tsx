@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import fs from 'fs/promises'
-import path from 'path'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -13,10 +11,7 @@ function getReadingTime(content: string): number {
   return Math.max(1, Math.round(words / 225))
 }
 
-export async function generateStaticParams() {
-  const slugs = await reader.collections.posts.list()
-  return slugs.map((slug) => ({ slug }))
-}
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({
   params,
@@ -42,19 +37,8 @@ export default async function BlogPostPage({
   if (!post) notFound()
 
   const content = await post.content()
-
-  const filePath = path.join(
-    process.cwd(),
-    'src/content/posts',
-    slug,
-    'index.mdoc'
-  )
-  let readingTime = 1
-  try {
-    const raw = await fs.readFile(filePath, 'utf-8')
-    const body = raw.replace(/^---[\s\S]*?---/, '').trim()
-    readingTime = getReadingTime(body)
-  } catch {}
+  const text = content.map((node: any) => JSON.stringify(node)).join(' ')
+  const readingTime = getReadingTime(text)
 
   const formattedDate = new Date(post.date).toLocaleDateString('en-GB', {
     day: 'numeric',
