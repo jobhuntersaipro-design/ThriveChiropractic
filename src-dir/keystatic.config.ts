@@ -6,6 +6,7 @@ export default config({
   storage: isProd
     ? {
         kind: 'cloud',
+        pathPrefix: 'src-dir',
       }
     : {
         kind: 'local',
