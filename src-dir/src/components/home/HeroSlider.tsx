@@ -126,7 +126,7 @@ export default function HeroSlider() {
                 <CarouselContent>
                   {images.map((src, i) => (
                     <CarouselItem key={src}>
-                      <div className="relative aspect-[4/3] sm:aspect-[3/4] w-full">
+                      <div className="relative aspect-[3/4] w-full">
                         <Image
                           src={src}
                           alt={`Thrive Chiropractic clinic ${i + 1}`}
