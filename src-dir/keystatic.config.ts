@@ -1,9 +1,19 @@
 import { config, collection, fields } from '@keystatic/core'
 
+const isProd = process.env.NODE_ENV === 'production'
+
 export default config({
-  storage: {
-    kind: 'local',
-  },
+  storage: isProd
+    ? {
+        kind: 'github',
+        repo: {
+          owner: process.env.NEXT_PUBLIC_GITHUB_REPO_OWNER!,
+          name: process.env.NEXT_PUBLIC_GITHUB_REPO_NAME!,
+        },
+      }
+    : {
+        kind: 'local',
+      },
   collections: {
     posts: collection({
       label: 'Blog Posts',
