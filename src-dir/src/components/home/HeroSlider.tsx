@@ -15,7 +15,9 @@ import BookButton from '@/components/shared/BookButton'
 const images = [
   '/images/showcase/thrive_1.webp',
   '/images/showcase/thrive_2.webp',
-  '/images/showcase/thrive_3.webp',
+  '/images/showcase/thrive_3.jpg',
+  '/images/showcase/thrive_4.png'
+
 ]
 
 function CarouselDots() {
