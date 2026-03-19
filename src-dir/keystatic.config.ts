@@ -5,15 +5,14 @@ const isProd = process.env.NODE_ENV === 'production'
 export default config({
   storage: isProd
     ? {
-        kind: 'github',
-        repo: {
-          owner: process.env.NEXT_PUBLIC_GITHUB_REPO_OWNER!,
-          name: process.env.NEXT_PUBLIC_GITHUB_REPO_NAME!,
-        },
+        kind: 'cloud',
       }
     : {
         kind: 'local',
       },
+  cloud: {
+    project: process.env.NEXT_PUBLIC_KEYSTATIC_CLOUD_PROJECT!,
+  },
   collections: {
     posts: collection({
       label: 'Blog Posts',
