@@ -32,23 +32,21 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? 'bg-cream shadow-md'
-          : 'bg-gradient-to-b from-black/50 to-transparent'
+      className={`fixed top-0 left-0 right-0 z-40 bg-cream transition-shadow duration-300 ${
+        scrolled ? 'shadow-md' : ''
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-1 shrink-0">
           <span
-            className={`text-2xl font-bold transition-colors duration-300 ${scrolled ? 'text-charcoal' : 'text-white'}`}
+            className="text-2xl font-bold text-charcoal"
             style={{ fontFamily: 'var(--font-cormorant)' }}
           >
             Thrive
           </span>
           <span
-            className={`text-sm font-medium transition-colors duration-300 ${scrolled ? 'text-charcoal' : 'text-white'}`}
+            className="text-sm font-medium text-charcoal"
             style={{ fontFamily: 'var(--font-dm-sans)' }}
           >
             Chiropractic
@@ -62,9 +60,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-sage ${
-                  scrolled ? 'text-charcoal' : 'text-white/90'
-                }`}
+                className="text-sm font-medium text-charcoal transition-colors duration-200 hover:text-sage"
               >
                 {link.label}
               </Link>
@@ -81,9 +77,7 @@ export default function Navbar() {
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger>
             <button
-              className={`lg:hidden p-2 rounded-md transition-colors ${
-                scrolled ? 'text-charcoal' : 'text-white'
-              }`}
+              className="lg:hidden p-2 rounded-md text-charcoal"
               aria-label="Open menu"
             >
               <Menu className="w-6 h-6" />

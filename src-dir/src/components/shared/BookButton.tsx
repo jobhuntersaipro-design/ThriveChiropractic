@@ -11,7 +11,7 @@ interface BookButtonProps {
 const sizeClasses = {
   sm: 'px-5 py-2 text-sm',
   md: 'px-7 py-3 text-base',
-  lg: 'px-9 py-4 text-lg',
+  lg: 'px-7 py-3 text-base sm:px-9 sm:py-4 sm:text-lg',
 }
 
 const variantClasses = {

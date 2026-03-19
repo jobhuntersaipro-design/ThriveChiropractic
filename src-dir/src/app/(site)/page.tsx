@@ -28,26 +28,26 @@ export default function Home() {
       <HeroSlider />
 
       {/* Section B — Intro Strip */}
-      <section className="py-24 bg-cream text-center">
+      <section className="py-14 sm:py-20 md:py-24 bg-charcoal text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <p className="uppercase text-gold text-sm font-semibold tracking-widest mb-4">
+          <p className="uppercase text-gold text-xs sm:text-sm font-semibold tracking-widest mb-3 sm:mb-4">
             Thrive Chiropractic
           </p>
           <h2
-            className="text-5xl sm:text-6xl font-bold text-charcoal leading-tight mb-6"
-            style={{ fontFamily: 'var(--font-cormorant)', fontSize: '56px' }}
+            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6"
+            style={{ fontFamily: 'var(--font-cormorant)' }}
           >
             Your Health. Our Purpose.
           </h2>
-          <div className="w-16 h-px bg-gold mx-auto mb-8" />
-          <p className="text-muted-green text-lg leading-relaxed mb-10">
+          <div className="w-16 h-px bg-gold mx-auto mb-6 sm:mb-8" />
+          <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10">
             At Thrive Chiropractic, we believe that great health is not the absence of pain — it&apos;s the freedom to live fully. Using the world-renowned Gonstead technique, we identify and correct the root causes of spinal dysfunction so you can thrive.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <BookButton size="lg" />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <BookButton variant="gold" size="lg" className="w-full sm:w-auto" />
             <Link
               href="/chiropractic"
-              className="px-9 py-4 rounded-full border-2 border-sage text-sage font-semibold text-lg hover:bg-sage hover:text-white transition-all duration-200"
+              className="px-7 sm:px-9 py-3 sm:py-4 rounded-full border-2 border-white/30 text-white font-semibold text-base sm:text-lg hover:bg-white/10 transition-all duration-200 w-full sm:w-auto text-center"
             >
               Learn More
             </Link>
@@ -62,20 +62,20 @@ export default function Home() {
       <TreatmentRoadmap />
 
       {/* Section E — Gonstead Highlight Strip */}
-      <section className="py-24 bg-cream">
+      <section className="py-14 sm:py-20 md:py-24 bg-cream">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
-              <p className="uppercase text-gold text-sm font-semibold tracking-widest mb-4">
+              <p className="uppercase text-gold text-xs sm:text-sm font-semibold tracking-widest mb-3 sm:mb-4">
                 Our Method
               </p>
               <h2
-                className="text-4xl md:text-5xl font-bold text-charcoal mb-6 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-charcoal mb-4 sm:mb-6 leading-tight"
                 style={{ fontFamily: 'var(--font-cormorant)' }}
               >
                 Why Gonstead?
               </h2>
-              <div className="w-16 h-px bg-gold mb-8" />
+              <div className="w-16 h-px bg-gold mb-6 sm:mb-8" />
               <p className="text-muted-green leading-relaxed mb-8">
                 The Gonstead System is considered the gold standard in chiropractic care. Developed by Dr. Clarence Gonstead over decades of research and practice, it uses five distinct criteria to precisely identify spinal misalignments — and correct only those that truly need attention.
               </p>
@@ -88,7 +88,7 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-3xl bg-sage/10 border border-border-warm p-10 text-center">
+            <div className="rounded-2xl sm:rounded-3xl bg-sage/10 border border-border-warm p-6 sm:p-10 text-center">
               <span
                 className="text-8xl font-bold text-sage/20 block mb-4"
                 style={{ fontFamily: 'var(--font-cormorant)' }}
@@ -116,26 +116,26 @@ export default function Home() {
       </section>
 
       {/* Section F — CTA Banner */}
-      <section className="py-24 bg-sage text-center">
+      <section className="py-14 sm:py-20 md:py-24 bg-sage text-center">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
-          <p className="uppercase text-white/70 text-sm font-semibold tracking-widest mb-4">
+          <p className="uppercase text-white/70 text-xs sm:text-sm font-semibold tracking-widest mb-3 sm:mb-4">
             Take the first step
           </p>
           <h2
-            className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight"
             style={{ fontFamily: 'var(--font-cormorant)' }}
           >
             Ready to Start Your Journey?
           </h2>
-          <p className="text-white/80 text-lg leading-relaxed mb-10">
+          <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10">
             Join hundreds of patients who have found lasting relief and renewed vitality through Gonstead chiropractic care at Thrive.
           </p>
-          <BookButton variant="gold" size="lg" />
+          <BookButton variant="gold" size="lg" className="w-full sm:w-auto" />
         </div>
       </section>
 
       {/* Section G — Location & Contact */}
-      <section className="py-24 bg-cream">
+      <section className="py-14 sm:py-20 md:py-24 bg-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <SectionHeading
             eyebrow="Find Us"
@@ -146,15 +146,15 @@ export default function Home() {
               href="https://maps.app.goo.gl/Kuy31p4jtpyjbtKe7"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-8 border border-border-warm flex flex-col items-center text-center hover:border-sage/40 transition-colors"
+              className="bg-white rounded-2xl p-5 sm:p-8 border border-border-warm flex flex-col items-center text-center hover:border-sage/40 transition-colors"
             >
               <MapPin className="w-6 h-6 text-sage mb-3" />
-              <h3 className="font-semibold text-charcoal mb-2">
+              <h3 className="font-semibold text-charcoal mb-2 text-sm sm:text-base">
                 Thrive Gonstead Chiropractic @ Rimbayu
               </h3>
               <p className="text-sage text-sm font-medium mt-1">View on Google Maps &rarr;</p>
             </a>
-            <div className="bg-white rounded-2xl p-8 border border-border-warm flex flex-col items-center text-center">
+            <div className="bg-white rounded-2xl p-5 sm:p-8 border border-border-warm flex flex-col items-center text-center">
               <Phone className="w-6 h-6 text-sage mb-3" />
               <h3 className="font-semibold text-charcoal mb-2">Opening Hours</h3>
               <div className="text-muted-green text-base leading-relaxed space-y-1">
@@ -170,7 +170,8 @@ export default function Home() {
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.5!2d101.5448643!3d2.9473265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb1010cae254b%3A0xd1865c2a54958996!2sThrive%20Gonstead%20Chiropractic%20%40%20Rimbayu!5e0!3m2!1sen!2smy!4v1"
               width="100%"
-              height="350"
+              height="250"
+              className="w-full h-[250px] sm:h-[350px]"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
