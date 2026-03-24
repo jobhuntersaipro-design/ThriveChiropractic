@@ -139,18 +139,18 @@ export default function FaqPage() {
   return (
     <>
       {/* Page Hero */}
-      <section className="pt-32 pb-16 bg-cream text-center">
+      <section className="pt-24 sm:pt-28 md:pt-32 pb-10 sm:pb-14 md:pb-16 bg-cream text-center">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <SectionHeading
             eyebrow="Help Centre"
             heading="Frequently Asked Questions"
-            subheading="Everything you need to know about chiropractic care, the Gonstead technique, and what to expect at Thrive Chiropractic."
+            subheading="Everything you need to know about chiropractic care, the Gonstead technique, and what to expect at Thrive Gonstead Chiropractic."
           />
         </div>
       </section>
 
       {/* FAQ Content */}
-      <section className="pb-24 bg-cream">
+      <section className="pb-14 sm:pb-20 md:pb-24 bg-cream">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="space-y-12">
             {categories.map((category) => (
@@ -169,10 +169,10 @@ export default function FaqPage() {
                       value={i}
                       className="border border-border-warm rounded-xl px-5 bg-white data-open:border-sage"
                     >
-                      <AccordionTrigger className="text-left text-charcoal font-medium text-lg hover:text-sage hover:no-underline py-4">
+                      <AccordionTrigger className="text-left text-charcoal font-medium text-xl hover:text-sage hover:no-underline py-6">
                         {item.q}
                       </AccordionTrigger>
-                      <AccordionContent className="text-muted-green text-base leading-relaxed pb-5">
+                      <AccordionContent className="text-muted-green text-lg leading-loose pb-6">
                         {item.a}
                       </AccordionContent>
                     </AccordionItem>

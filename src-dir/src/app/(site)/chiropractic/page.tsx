@@ -72,14 +72,14 @@ export default function ChiropracticPage() {
       {/* Section 1 — What is Chiropractic */}
       <section
         id="what-is-chiropractic"
-        className="pt-32 pb-24 bg-gradient-to-b from-sage to-sage-dark"
+        className="pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-20 md:pb-24 bg-gradient-to-b from-sage to-sage-dark"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="uppercase text-white/70 text-sm font-semibold tracking-widest mb-4">
             Understanding Chiropractic
           </p>
           <h1
-            className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight"
             style={{ fontFamily: 'var(--font-cormorant)' }}
           >
             What is Chiropractic Care?
@@ -138,7 +138,7 @@ export default function ChiropracticPage() {
       </section>
 
       {/* Section 2 — Gonstead */}
-      <section id="gonstead" className="py-24 bg-charcoal">
+      <section id="gonstead" className="py-14 sm:py-20 md:py-24 bg-charcoal">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="uppercase text-gold text-sm font-semibold tracking-widest mb-3">
@@ -175,34 +175,6 @@ export default function ChiropracticPage() {
             ))}
           </div>
 
-          {/* Comparison table */}
-          <div className="mb-16 overflow-x-auto">
-            <table className="w-full border-collapse text-sm">
-              <thead>
-                <tr className="border-b border-white/10">
-                  <th className="py-3 px-4 text-left text-white/50 font-medium"></th>
-                  <th className="py-3 px-4 text-center text-gold font-semibold">Gonstead</th>
-                  <th className="py-3 px-4 text-center text-white/50 font-medium">General Chiropractic</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  ['Specific vertebra identified', '✓', '—'],
-                  ['X-ray analysis used', '✓', 'Sometimes'],
-                  ['Instrumentation (Nervoscope)', '✓', 'Rare'],
-                  ['Only affected segments adjusted', '✓', 'Often general'],
-                  ['Adjusts in exact line of correction', '✓', 'Variable'],
-                ].map(([label, gonstead, general]) => (
-                  <tr key={String(label)} className="border-b border-white/5">
-                    <td className="py-3 px-4 text-white/70">{label}</td>
-                    <td className="py-3 px-4 text-center text-sage font-semibold">{gonstead}</td>
-                    <td className="py-3 px-4 text-center text-white/40">{general}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
           {/* Benefits */}
           <div className="text-center">
             <h3
@@ -224,7 +196,7 @@ export default function ChiropracticPage() {
       </section>
 
       {/* Section 3 — X-Ray */}
-      <section id="xray" className="py-24 bg-cream">
+      <section id="xray" className="py-14 sm:py-20 md:py-24 bg-cream">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Diagnostic Precision"

@@ -95,9 +95,9 @@ export default function HeroSlider() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-4 sm:mb-6 leading-[1.1]"
               style={{ fontFamily: 'var(--font-cormorant)' }}
             >
-              Precise Care.
+              Relief that lasts
               <br />
-              <span className="italic text-sage-dark">Lasting Results.</span>
+              <span className="italic text-sage-dark">Life that follows</span>
             </h1>
             <p className="text-charcoal/70 text-base sm:text-lg leading-relaxed mb-6 sm:mb-10 max-w-lg mx-auto md:mx-0">
               We identify and correct the root cause of spinal dysfunction using
@@ -129,7 +129,7 @@ export default function HeroSlider() {
                       <div className="relative aspect-[3/4] w-full">
                         <Image
                           src={src}
-                          alt={`Thrive Chiropractic clinic ${i + 1}`}
+                          alt={`Thrive Gonstead Chiropractic clinic ${i + 1}`}
                           fill
                           priority={i === 0}
                           className="object-cover"

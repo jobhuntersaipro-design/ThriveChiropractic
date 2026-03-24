@@ -22,7 +22,7 @@ export async function generateMetadata({
   const post = await reader.collections.posts.read(slug)
   if (!post) return { title: 'Post Not Found' }
   return {
-    title: `${post.title} — Thrive Chiropractic`,
+    title: `${post.title} — Thrive Gonstead Chiropractic`,
     description: post.excerpt,
   }
 }
@@ -89,7 +89,7 @@ export default async function BlogPostPage({
       </section>
 
       {/* Content */}
-      <section className="py-16 bg-cream">
+      <section className="py-10 sm:py-14 md:py-16 bg-cream">
         <article className="max-w-3xl mx-auto px-4 sm:px-6">
           <DocumentRenderer
             document={content}

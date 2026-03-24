@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Zap, Syringe, Ruler, Trophy, Heart, Baby } from 'lucide-react'
+import { Zap, Leaf, Ruler, Trophy, Heart, Baby } from 'lucide-react'
 import BookButton from '@/components/shared/BookButton'
 import SectionHeading from '@/components/shared/SectionHeading'
 
@@ -17,10 +17,10 @@ const services: Service[] = [
       'Precise, specific spinal corrections using the Gonstead technique to restore proper alignment, relieve nerve pressure, and support your body&apos;s innate ability to heal.',
   },
   {
-    icon: <Syringe className="w-8 h-8" />,
-    name: 'Dry Needling',
+    icon: <Leaf className="w-8 h-8" />,
+    name: 'Wellness & Preventive Care',
     description:
-      'Targeted insertion of fine needles into myofascial trigger points to release muscle tension, reduce pain, and improve range of motion in combination with chiropractic care.',
+      'Ongoing chiropractic care focused on maintaining optimal spinal health, preventing injuries, and supporting overall wellbeing through regular adjustments and lifestyle guidance.',
   },
   {
     icon: <Ruler className="w-8 h-8" />,
@@ -52,7 +52,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Page Hero */}
-      <section className="pt-32 pb-16 bg-cream text-center">
+      <section className="pt-24 sm:pt-28 md:pt-32 pb-10 sm:pb-14 md:pb-16 bg-cream text-center">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <SectionHeading
             eyebrow="Our Services"
@@ -63,7 +63,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="pb-24 bg-cream">
+      <section className="pb-14 sm:pb-20 md:pb-24 bg-cream">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (

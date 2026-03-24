@@ -56,26 +56,26 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-24 bg-gradient-to-b from-sage to-sage-dark text-center">
+      <section className="pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-20 md:pb-24 bg-gradient-to-b from-sage to-sage-dark text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <p className="uppercase text-white/70 text-sm font-semibold tracking-widest mb-4">
+          <p className="uppercase text-white/70 text-xs sm:text-sm font-semibold tracking-widest mb-3 sm:mb-4">
             Our Story
           </p>
           <h1
-            className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight"
             style={{ fontFamily: 'var(--font-cormorant)' }}
           >
-            About Thrive Chiropractic
+            About Thrive Gonstead Chiropractic
           </h1>
-          <div className="w-16 h-px bg-gold mx-auto mb-8" />
-          <p className="text-white/80 text-lg leading-relaxed">
+          <div className="w-16 h-px bg-gold mx-auto mb-6 sm:mb-8" />
+          <p className="text-white/80 text-base sm:text-lg leading-relaxed">
             Born from a belief that everyone deserves to live without pain and with the freedom to do what they love.
           </p>
         </div>
       </section>
 
       {/* Our Story */}
-      <section className="py-24 bg-cream">
+      <section className="py-14 sm:py-20 md:py-24 bg-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <SectionHeading
             eyebrow="Our Story"
@@ -83,7 +83,7 @@ export default function AboutPage() {
           />
           <div className="prose prose-lg max-w-none text-muted-green space-y-5">
             <p>
-              Thrive Chiropractic was founded on a simple premise: that great chiropractic care — the kind that actually changes lives — should be accessible to everyone. Too many people live with chronic pain, accepting it as an inevitable part of modern life. We knew it did not have to be that way.
+              Thrive Gonstead Chiropractic was founded on a simple premise: that great chiropractic care — the kind that actually changes lives — should be accessible to everyone. Too many people live with chronic pain, accepting it as an inevitable part of modern life. We knew it did not have to be that way.
             </p>
             <p>
               Our founders, Dr. Lucas and Dr. Ruth, both experienced firsthand the profound impact that precise, Gonstead chiropractic care can have. After years of study and clinical practice across multiple countries, they came together to build the kind of practice they had always wanted to be patients of — one defined by clinical rigour, genuine care, and lasting results.
@@ -96,7 +96,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Mission */}
-      <section className="py-24 bg-sage/5">
+      <section className="py-14 sm:py-20 md:py-24 bg-sage/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Our Mission"
@@ -124,7 +124,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-24 bg-cream">
+      <section className="py-14 sm:py-20 md:py-24 bg-cream">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="The Team"
@@ -189,14 +189,14 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className="py-24 bg-charcoal">
+      <section className="py-14 sm:py-20 md:py-24 bg-charcoal">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <p className="uppercase text-gold text-sm font-semibold tracking-widest mb-3">
               What We Stand For
             </p>
             <h2
-              className="text-4xl md:text-5xl font-bold text-white"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white"
               style={{ fontFamily: 'var(--font-cormorant)' }}
             >
               Our Values
@@ -221,7 +221,7 @@ export default function AboutPage() {
       </section>
 
       {/* Location & Contact */}
-      <section className="py-24 bg-cream">
+      <section className="py-14 sm:py-20 md:py-24 bg-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <SectionHeading
             eyebrow="Find Us"

@@ -17,16 +17,16 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Thrive Chiropractic — Gonstead Specialists',
+  title: 'Thrive Gonstead Chiropractic',
   description:
-    'Thrive Chiropractic offers expert Gonstead chiropractic care for back pain, neck pain, headaches, sciatica, disc issues, and more. Book your appointment today.',
+    'Thrive Gonstead Chiropractic offers expert Gonstead chiropractic care for back pain, neck pain, headaches, sciatica, disc issues, and more. Book your appointment today.',
   keywords: [
     'Gonstead chiropractor',
     'chiropractic care',
     'back pain relief',
     'neck pain',
     'sciatica treatment',
-    'Thrive Chiropractic',
+    'Thrive Gonstead Chiropractic',
   ],
   icons: {
     icon: [

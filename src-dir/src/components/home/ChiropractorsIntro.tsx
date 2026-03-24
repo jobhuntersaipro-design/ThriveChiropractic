@@ -26,7 +26,7 @@ const doctors: Doctor[] = [
 
 export default function ChiropractorsIntro() {
   return (
-    <section className="py-24 bg-cream">
+    <section className="py-14 sm:py-20 md:py-24 bg-cream">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Meet Our Team"
