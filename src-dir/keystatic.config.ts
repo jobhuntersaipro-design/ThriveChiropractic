@@ -1,19 +1,20 @@
 import { config, collection, fields } from '@keystatic/core'
 
-const isProd = process.env.NODE_ENV === 'production'
+const isVercel = !!process.env.VERCEL
 
 export default config({
-  storage: isProd
+  storage: isVercel
     ? {
-        kind: 'cloud',
+        kind: 'github',
+        repo: {
+          owner: process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_OWNER!,
+          name: process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO!,
+        },
         pathPrefix: 'src-dir',
       }
     : {
         kind: 'local',
       },
-  cloud: {
-    project: process.env.NEXT_PUBLIC_KEYSTATIC_CLOUD_PROJECT!,
-  },
   collections: {
     posts: collection({
       label: 'Blog Posts',

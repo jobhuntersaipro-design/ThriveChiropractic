@@ -7,23 +7,12 @@ export function middleware(request: NextRequest) {
   // Allow these paths through without auth
   if (
     pathname === '/login' ||
-    pathname === '/keystatic-login' ||
     pathname.startsWith('/api') ||
+    pathname.startsWith('/keystatic') ||
     pathname.startsWith('/_next') ||
     pathname.startsWith('/images') ||
     pathname === '/favicon.ico'
   ) {
-    return NextResponse.next()
-  }
-
-  // Protect /keystatic admin with separate auth
-  if (pathname.startsWith('/keystatic')) {
-    const hasKestaticAccess = request.cookies.get('keystatic_access')?.value === 'authorized'
-    if (!hasKestaticAccess) {
-      const url = request.nextUrl.clone()
-      url.pathname = '/keystatic-login'
-      return NextResponse.redirect(url)
-    }
     return NextResponse.next()
   }
 
