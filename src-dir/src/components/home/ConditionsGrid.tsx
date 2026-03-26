@@ -4,7 +4,7 @@ import { useCallback, useRef, useState } from 'react'
 import Image from 'next/image'
 import SectionHeading from '@/components/shared/SectionHeading'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper/modules'
+
 import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 
@@ -126,10 +126,8 @@ export default function ConditionsGrid() {
       {/* Cards carousel */}
       <div className="mt-8">
         <Swiper
-          modules={[Autoplay]}
           spaceBetween={16}
           slidesPerView={1.8}
-          autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
           onSwiper={setSwiperInstance}
           onSlideChange={(swiper) => {
             setActiveIndex(swiper.realIndex)

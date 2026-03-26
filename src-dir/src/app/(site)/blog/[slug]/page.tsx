@@ -34,7 +34,7 @@ export default async function BlogPostPage({
 }) {
   const { slug } = await params
   const post = await reader.collections.posts.read(slug)
-  if (!post) notFound()
+  if (!post || post.status === 'draft') notFound()
 
   const content = await post.content()
   const text = content.map((node: any) => JSON.stringify(node)).join(' ')

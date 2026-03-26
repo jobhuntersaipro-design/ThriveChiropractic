@@ -21,8 +21,16 @@ export default config({
       path: 'src/content/posts/*/',
       entryLayout: 'content',
       format: { contentField: 'content' },
-      columns: ['title', 'date'],
+      columns: ['title', 'status', 'date', 'author'],
       schema: {
+        status: fields.select({
+          label: 'Status',
+          options: [
+            { label: 'Draft', value: 'draft' },
+            { label: 'Published', value: 'published' },
+          ],
+          defaultValue: 'draft',
+        }),
         title: fields.slug({
           name: {
             label: 'Title',
@@ -37,7 +45,7 @@ export default config({
           validation: { isRequired: true, length: { min: 10 } },
         }),
         author: fields.text({
-          label: 'Author',
+          label: 'Created By',
           description: 'Name of the blog post author.',
           validation: { isRequired: true },
         }),

@@ -32,6 +32,7 @@ export default async function BlogPage() {
         excerpt: post.excerpt,
         author: post.author,
         date: post.date,
+        status: post.status,
         tags: post.tags,
         coverImage: post.coverImage ?? '',
         readingTime,
@@ -40,7 +41,10 @@ export default async function BlogPage() {
   )
 
   const sortedPosts = posts
-    .filter((p): p is NonNullable<typeof p> => p !== null)
+    .filter(
+      (p): p is NonNullable<typeof p> =>
+        p !== null && p.status === 'published'
+    )
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
   return (
