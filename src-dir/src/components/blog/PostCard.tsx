@@ -7,7 +7,7 @@ interface PostCardProps {
   excerpt: string
   author: string
   date: string
-  tags: readonly string[]
+  tags: string[]
   coverImage: string
   readingTime: number
 }

@@ -1,21 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
-  async redirects() {
-    return [
+  images: {
+    remotePatterns: [
       {
-        source: '/blog/manage',
-        destination: '/keystatic',
-        permanent: true,
+        protocol: 'https',
+        hostname: 'cdn.hashnode.com',
       },
-      {
-        source: '/blog/manage/:path*',
-        destination: '/keystatic/:path*',
-        permanent: true,
-      },
-    ]
+    ],
   },
 };
 

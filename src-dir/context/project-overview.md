@@ -11,8 +11,8 @@
 | Framework | Next.js 15 (App Router) |
 | Language | TypeScript (strict mode) |
 | Styling | Tailwind CSS v4 + shadcn/ui |
-| CMS/Blog | Keystatic (`@keystatic/core` + `@keystatic/next`) — file-based MDX with built-in visual editor at `/keystatic` |
-| Auth (Blog) | Keystatic built-in auth (local mode for dev; GitHub OAuth mode for production) |
+| CMS/Blog | Payload CMS v3 (`payload` + `@payloadcms/next` + `@payloadcms/richtext-lexical`) — SQLite-backed with admin panel at `/admin` |
+| Auth (Blog) | Payload CMS built-in auth (email/password with JWT) |
 | Fonts | Cormorant Garamond (headings) + DM Sans (body) via `next/font/google` |
 | Icons | Lucide React |
 | Animations | Framer Motion |

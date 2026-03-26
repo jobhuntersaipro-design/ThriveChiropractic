@@ -1,7 +1,4 @@
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
-import WhatsAppFAB from '@/components/layout/WhatsAppFAB'
 import '../globals.css'
 
 const cormorant = Cormorant_Garamond({
@@ -18,7 +15,7 @@ const dmSans = DM_Sans({
   display: 'swap',
 })
 
-export default function SiteLayout({
+export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
@@ -27,10 +24,7 @@ export default function SiteLayout({
     <div
       className={`${cormorant.variable} ${dmSans.variable} antialiased bg-cream text-charcoal`}
     >
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
-      <WhatsAppFAB />
+      {children}
     </div>
   )
 }

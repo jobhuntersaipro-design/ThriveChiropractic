@@ -1,13 +1,6 @@
 import type { Metadata } from 'next'
-import { reader } from '@/lib/reader'
+import { getPosts } from '@/lib/hashnode'
 import PostCard from '@/components/blog/PostCard'
-
-function getReadingTime(content: string): number {
-  const words = content.trim().split(/\s+/).length
-  return Math.max(1, Math.round(words / 150))
-}
-
-export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Blog — Thrive Gonstead Chiropractic',
@@ -16,36 +9,7 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage() {
-  const slugs = await reader.collections.posts.list()
-  const posts = await Promise.all(
-    slugs.map(async (slug) => {
-      const post = await reader.collections.posts.read(slug)
-      if (!post) return null
-
-      const content = await post.content()
-      const text = content.map((node: any) => JSON.stringify(node)).join(' ')
-      const readingTime = getReadingTime(text)
-
-      return {
-        slug,
-        title: post.title,
-        excerpt: post.excerpt,
-        author: post.author,
-        date: post.date,
-        status: post.status,
-        tags: post.tags,
-        coverImage: post.coverImage ?? '',
-        readingTime,
-      }
-    })
-  )
-
-  const sortedPosts = posts
-    .filter(
-      (p): p is NonNullable<typeof p> =>
-        p !== null && p.status === 'published'
-    )
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  const { posts } = await getPosts(50)
 
   return (
     <>
@@ -71,10 +35,22 @@ export default async function BlogPage() {
       {/* Post grid */}
       <section className="py-14 sm:py-16 md:py-20 bg-cream">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {sortedPosts.length > 0 ? (
+          {posts.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sortedPosts.map((post) => (
-                <PostCard key={post.slug} post={post} />
+              {posts.map((post) => (
+                <PostCard
+                  key={post.id}
+                  post={{
+                    slug: post.slug,
+                    title: post.title,
+                    excerpt: post.brief,
+                    author: post.author.name,
+                    date: post.publishedAt,
+                    tags: post.tags.map((t) => t.name),
+                    coverImage: post.coverImage?.url ?? '',
+                    readingTime: post.readTimeInMinutes,
+                  }}
+                />
               ))}
             </div>
           ) : (

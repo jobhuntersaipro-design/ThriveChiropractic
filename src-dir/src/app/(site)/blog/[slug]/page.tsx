@@ -3,15 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowLeft } from 'lucide-react'
-import { reader } from '@/lib/reader'
-import { DocumentRenderer } from '@keystatic/core/renderer'
-
-function getReadingTime(content: string): number {
-  const words = content.trim().split(/\s+/).length
-  return Math.max(1, Math.round(words / 225))
-}
-
-export const dynamic = 'force-dynamic'
+import { getPostBySlug } from '@/lib/hashnode'
 
 export async function generateMetadata({
   params,
@@ -19,11 +11,11 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const post = await reader.collections.posts.read(slug)
+  const post = await getPostBySlug(slug)
   if (!post) return { title: 'Post Not Found' }
   return {
-    title: `${post.title} — Thrive Gonstead Chiropractic`,
-    description: post.excerpt,
+    title: post.seo?.title ?? `${post.title} — Thrive Gonstead Chiropractic`,
+    description: post.seo?.description ?? post.brief,
   }
 }
 
@@ -33,27 +25,26 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const post = await reader.collections.posts.read(slug)
-  if (!post || post.status === 'draft') notFound()
+  const post = await getPostBySlug(slug)
+  if (!post) notFound()
 
-  const content = await post.content()
-  const text = content.map((node: any) => JSON.stringify(node)).join(' ')
-  const readingTime = getReadingTime(text)
-
-  const formattedDate = new Date(post.date).toLocaleDateString('en-GB', {
+  const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
   })
+
+  const coverUrl = post.coverImage?.url ?? ''
+  const tags = post.tags.map((t) => t.name)
 
   return (
     <>
       {/* Cover image header */}
       <section className="relative pt-24">
         <div className="relative h-[340px] md:h-[420px]">
-          {post.coverImage && (
+          {coverUrl && (
             <Image
-              src={post.coverImage}
+              src={coverUrl}
               alt={post.title}
               fill
               priority
@@ -65,7 +56,7 @@ export default async function BlogPostPage({
           <div className="absolute inset-0 flex items-end">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 pb-10 w-full">
               <div className="flex flex-wrap gap-2 mb-3">
-                {post.tags.map((tag) => (
+                {tags.map((tag) => (
                   <span
                     key={tag}
                     className="text-xs font-medium bg-white/20 text-white px-3 py-1 rounded-full backdrop-blur-sm"
@@ -81,7 +72,7 @@ export default async function BlogPostPage({
                 {post.title}
               </h1>
               <p className="text-white/70 text-sm">
-                By {post.author} &middot; {formattedDate} &middot; {readingTime} min read
+                By {post.author.name} &middot; {formattedDate} &middot; {post.readTimeInMinutes} min read
               </p>
             </div>
           </div>
@@ -91,89 +82,10 @@ export default async function BlogPostPage({
       {/* Content */}
       <section className="py-10 sm:py-14 md:py-16 bg-cream">
         <article className="max-w-3xl mx-auto px-4 sm:px-6">
-          <DocumentRenderer
-            document={content}
-            renderers={{
-              block: {
-                heading: ({ level, children }) => {
-                  if (level === 2) {
-                    return (
-                      <h2
-                        className="text-3xl font-bold text-charcoal mt-10 mb-4"
-                        style={{ fontFamily: 'var(--font-cormorant)' }}
-                      >
-                        {children}
-                      </h2>
-                    )
-                  }
-                  if (level === 3) {
-                    return (
-                      <h3
-                        className="text-2xl font-bold text-charcoal mt-8 mb-3"
-                        style={{ fontFamily: 'var(--font-cormorant)' }}
-                      >
-                        {children}
-                      </h3>
-                    )
-                  }
-                  return (
-                    <h4 className="text-xl font-bold text-charcoal mt-6 mb-2">
-                      {children}
-                    </h4>
-                  )
-                },
-                paragraph: ({ children, textAlign }) => (
-                  <p
-                    className="text-muted-green leading-relaxed mb-4"
-                    style={{ textAlign }}
-                  >
-                    {children}
-                  </p>
-                ),
-                list: ({ type, children }) =>
-                  type === 'ordered' ? (
-                    <ol className="list-decimal list-inside space-y-1.5 text-muted-green mb-4 ml-2">
-                      {children}
-                    </ol>
-                  ) : (
-                    <ul className="list-disc list-inside space-y-1.5 text-muted-green mb-4 ml-2">
-                      {children}
-                    </ul>
-                  ),
-                blockquote: ({ children }) => (
-                  <blockquote className="border-l-4 border-gold pl-5 py-1 my-6">
-                    <div
-                      className="italic text-lg text-charcoal/70 leading-relaxed"
-                      style={{ fontFamily: 'var(--font-cormorant)' }}
-                    >
-                      {children}
-                    </div>
-                  </blockquote>
-                ),
-                image: ({ src, alt }) => (
-                  <figure className="my-8 rounded-2xl overflow-hidden">
-                    <Image
-                      src={src}
-                      alt={alt ?? ''}
-                      width={800}
-                      height={450}
-                      className="w-full h-auto object-cover rounded-2xl"
-                      sizes="(max-width: 768px) 100vw, 720px"
-                    />
-                    {alt && (
-                      <figcaption className="text-xs text-muted-green mt-2 text-center italic">
-                        {alt}
-                      </figcaption>
-                    )}
-                  </figure>
-                ),
-              },
-              inline: {
-                bold: ({ children }) => (
-                  <strong className="text-charcoal">{children}</strong>
-                ),
-              },
-            }}
+          <div
+            className="prose prose-lg prose-headings:font-bold prose-headings:text-charcoal prose-p:text-muted-green prose-p:leading-relaxed prose-a:text-sage prose-a:underline prose-blockquote:border-l-4 prose-blockquote:border-gold prose-blockquote:pl-5 prose-blockquote:italic prose-img:rounded-2xl max-w-none"
+            style={{ fontFamily: 'var(--font-dm-sans)' }}
+            dangerouslySetInnerHTML={{ __html: post.content.html }}
           />
 
           <div className="border-t border-border-warm mt-12 pt-8">
