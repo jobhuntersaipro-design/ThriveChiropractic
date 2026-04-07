@@ -95,9 +95,9 @@ export default function ConditionsGrid() {
     <section className="py-24 bg-cream overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="What We Treat"
-          heading="Conditions We Care For"
-          subheading="We help patients of all ages address a wide range of spinal and musculoskeletal conditions."
+          eyebrow="Our Services"
+          heading="Conditions We Help With"
+          subheading="Chiropractic care addresses the body's bones, joints, and nervous system. When nerve interference is removed, the effects often go well beyond the area we adjust."
         />
       </div>
 
