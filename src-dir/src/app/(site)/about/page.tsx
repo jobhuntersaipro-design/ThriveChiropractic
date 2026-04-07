@@ -33,22 +33,31 @@ const values = [
 
 const teamMembers = [
   {
-    initials: 'DL',
-    name: 'Dr. Lucas',
-    role: 'Principal Chiropractor',
-    credentials: 'B.Chiro, Cert. Gonstead (USA)',
-    bio: 'Dr. Lucas graduated with distinction and completed advanced Gonstead training at the Gonstead Clinical Studies Society in the USA. He has over 10 years of clinical experience treating patients across all age groups, from newborns to seniors. His passion lies in identifying the root cause of spinal dysfunction and delivering precise, lasting corrections.',
+    initials: 'LC',
+    name: 'Lucas Chong',
+    role: 'Chiropractor',
+    credentials: 'BSc (Hons) Chiropractic',
     quote:
-      '"Every spine tells a story. My job is to listen, understand, and help write the next chapter — one free from pain."',
+      '\u201cIt brings me joy to see my community live a thriving life \u2014 empowering you to achieve what you set out to achieve, without being held back by poor health.\u201d',
+    bio: [
+      'Lucas completed his Bachelor of Science in Chiropractic at International Medical University (IMU), Malaysia. Since then, he has served communities across Kuala Lumpur, Cairns, and Melbourne, before founding Thrive Gonstead Chiropractic in Bandar Rimbayu, Selangor.',
+      'What sets Lucas apart is his dedication to mastering the Gonstead System. Since 2019, he has actively engaged in domestic and international seminars organised by the Gonstead Chiropractic Society Australia, driven not by credentials but by genuine conviction in the method.',
+      'Beyond the clinic, Lucas has represented Malaysia twice at the World Games in Ultimate Frisbee, in 2018 and 2024, both times as team captain. He\u2019ll tell you the experience was never really about the competition. It was the people and the moments along the way, a lesson he carries into his practice where meaningful connections matter just as much as the care itself.',
+    ],
   },
   {
-    initials: 'DR',
-    name: 'Dr. Ruth',
-    role: 'Associate Chiropractor',
-    credentials: 'B.Chiro (Hons), M.ClinChiro',
-    bio: 'Dr. Ruth specialises in pregnancy and paediatric chiropractic care. She holds a Masters in Clinical Chiropractic and is passionate about supporting families through every stage of life. Her gentle, patient-centred approach has helped hundreds of mothers and children achieve better health outcomes.',
+    initials: 'RL',
+    name: 'Ruth Lai',
+    role: 'Chiropractor',
+    credentials: 'BSc (Hons) Chiropractic',
     quote:
-      '"True healing begins when we address the cause, not just the symptom. That is the foundation of everything we do here."',
+      '\u201cI know what it feels like to grow up in pain and not understand why. Chiropractic gave me my life back \u2014 and now I get to do that for others. That never gets old.\u201d',
+    bio: [
+      'Ruth completed her Bachelor of Science in Chiropractic at International Medical University (IMU), Malaysia, graduating top of her class with Dean\u2019s List honours and the Tun Zahir Award. She has since served communities across Kuala Lumpur, Cairns, and Melbourne before co-founding Thrive Gonstead Chiropractic in Bandar Rimbayu, Selangor.',
+      'Her path into chiropractic is personal. Growing up with scoliosis and debilitating migraines, it was the Gonstead approach that gave her answers when nothing else could. That experience shapes how she practises today, with patience, precision, and genuine empathy for what her patients are going through.',
+      'Ruth holds a Webster Certification and has a particular dedication to women\u2019s health, pregnancy, and paediatric care. She has been deeply committed to mastering the Gonstead System, actively participating in domestic and international seminars organised by the Gonstead Chiropractic Society Australia. Currently, she is completing a postgraduate course in animal chiropractic, expanding her scope beyond the human spine.',
+      'Outside the clinic, Ruth dives, boulders, and keeps active at the gym. She genuinely believes in living the lifestyle she encourages in her patients.',
+    ],
   },
 ]
 
@@ -86,7 +95,7 @@ export default function AboutPage() {
               Thrive Gonstead Chiropractic was founded on a simple premise: that great chiropractic care — the kind that actually changes lives — should be accessible to everyone. Too many people live with chronic pain, accepting it as an inevitable part of modern life. We knew it did not have to be that way.
             </p>
             <p>
-              Our founders, Dr. Lucas and Dr. Ruth, both experienced firsthand the profound impact that precise, Gonstead chiropractic care can have. After years of study and clinical practice across multiple countries, they came together to build the kind of practice they had always wanted to be patients of — one defined by clinical rigour, genuine care, and lasting results.
+              Our founders, Lucas and Ruth, both experienced firsthand the profound impact that precise, Gonstead chiropractic care can have. After years of study and clinical practice across multiple countries, they came together to build the kind of practice they had always wanted to be patients of — one defined by clinical rigour, genuine care, and lasting results.
             </p>
             <p>
               Since opening our doors, we have helped hundreds of patients — from desk workers and athletes to newborns and seniors — reclaim their health and discover what it truly feels like to thrive.
@@ -128,8 +137,8 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="The Team"
-            heading="Meet Our Practitioners"
-            subheading="Our chiropractors bring decades of combined experience and a shared commitment to the Gonstead system of care."
+            heading="Meet Our Chiropractor"
+            subheading="Our chiropractors bring combined experience and a shared commitment to the Gonstead system of care."
           />
           <div className="space-y-16">
             {teamMembers.map((member) => (
@@ -157,12 +166,9 @@ export default function AboutPage() {
                   <p className="text-muted-green text-sm mt-1">{member.credentials}</p>
                 </div>
 
-                {/* Bio & quote */}
+                {/* Quote & Bio */}
                 <div>
-                  <p className="text-muted-green leading-relaxed text-lg mb-8">
-                    {member.bio}
-                  </p>
-                  <blockquote className="border-l-4 border-gold pl-6 py-2">
+                  <blockquote className="border-l-4 border-gold pl-6 py-2 mb-8">
                     <p
                       className="italic text-xl text-charcoal/70 leading-relaxed"
                       style={{ fontFamily: 'var(--font-cormorant)' }}
@@ -170,6 +176,13 @@ export default function AboutPage() {
                       {member.quote}
                     </p>
                   </blockquote>
+                  <div className="space-y-4">
+                    {member.bio.map((paragraph, i) => (
+                      <p key={i} className="text-muted-green leading-relaxed text-lg">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}

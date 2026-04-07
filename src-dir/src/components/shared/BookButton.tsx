@@ -6,6 +6,7 @@ interface BookButtonProps {
   variant?: 'primary' | 'outline' | 'gold'
   size?: 'sm' | 'md' | 'lg'
   className?: string
+  label?: string
 }
 
 const sizeClasses = {
@@ -24,6 +25,7 @@ export default function BookButton({
   variant = 'primary',
   size = 'md',
   className = '',
+  label = 'Book an Appointment',
 }: BookButtonProps) {
   return (
     <a
@@ -32,7 +34,7 @@ export default function BookButton({
       rel="noopener noreferrer"
       className={`inline-block rounded-full font-semibold transition-all duration-200 text-center ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
     >
-      Book an Appointment
+      {label}
     </a>
   )
 }

@@ -4,24 +4,25 @@ import BookButton from '@/components/shared/BookButton'
 import SectionHeading from '@/components/shared/SectionHeading'
 
 const consultIncludes = [
-  'Full spinal health history',
-  'Postural and orthopaedic assessment',
-  'Nervoscope instrumentation scan',
-  'X-ray analysis (where indicated)',
-  'Personalised care plan',
+  'Comprehensive history taking',
+  'Nervoscope Instrumentation Scan',
+  'Postural and Orthopaedic Examination',
+  'Gonstead Chiropractic Examination',
+  'Referral for further imaging if required',
 ]
 
 const firstTreatmentIncludes = [
-  'First Gonstead adjustment',
-  'Detailed findings report',
-  'Personalised care plan review',
-  'Home care recommendations',
+  'X-ray analysis',
+  'Detailed report of findings',
+  'Personalised care plan',
+  'First adjustment',
+  'Post-adjustment care recommendations',
 ]
 
 const followUpIncludes = [
-  'Gonstead spinal adjustment',
-  'Progress reassessment',
-  'Nervoscope scan',
+  'Nervoscope Instrumentation Scan',
+  'Full Gonstead Chiropractic Examination',
+  'Gonstead Adjustment',
   'Home care recommendations',
 ]
 
@@ -55,7 +56,7 @@ export default function PricingPage() {
               >
                 RM 100
               </p>
-              <p className="text-muted-green text-sm mb-6">First visit · Approx. 45 min</p>
+              <p className="text-muted-green text-sm mb-6">First Visit · Approx. 20-30 min</p>
               <ul className="space-y-3 flex-1">
                 {consultIncludes.map((item: string) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-charcoal transition-all duration-200 hover:translate-x-1 hover:text-sage">
@@ -78,7 +79,7 @@ export default function PricingPage() {
               >
                 RM 200
               </p>
-              <p className="text-muted-green text-sm mb-6">First adjustment · Approx. 30 min</p>
+              <p className="text-muted-green text-sm mb-6">Approx. 20-30 min</p>
               <ul className="space-y-3 flex-1">
                 {firstTreatmentIncludes.map((item: string) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-charcoal transition-all duration-200 hover:translate-x-1 hover:text-sage">
@@ -93,7 +94,7 @@ export default function PricingPage() {
             {/* Follow-Up Treatment */}
             <div className="flex flex-col rounded-2xl border border-border-warm bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-sage/40">
               <p className="text-charcoal text-sm font-semibold uppercase tracking-widest mb-2">
-                Follow-Up Treatment
+                Standard Follow-Up
               </p>
               <p
                 className="text-5xl font-bold text-charcoal mb-1"
@@ -101,7 +102,7 @@ export default function PricingPage() {
               >
                 RM 160
               </p>
-              <p className="text-muted-green text-sm mb-6">Subsequent visits · Approx. 30 min</p>
+              <p className="text-muted-green text-sm mb-6">Approx. 20 min</p>
               <ul className="space-y-3 flex-1">
                 {followUpIncludes.map((item: string) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-charcoal transition-all duration-200 hover:translate-x-1 hover:text-sage">
@@ -118,7 +119,7 @@ export default function PricingPage() {
           <div className="mt-10 flex items-start gap-3 bg-warm-white border border-border-warm rounded-xl p-5 transition-all duration-300 hover:shadow-md hover:border-sage/30">
             <CreditCard className="w-5 h-5 text-sage shrink-0 mt-0.5" />
             <p className="text-sm text-muted-green leading-relaxed">
-              <strong className="text-charcoal">Payment:</strong> We accept cash, credit/debit cards, and online bank transfer. Payment is due at the time of service. Corporate and insurance billing enquiries are welcome — please contact us via WhatsApp.
+              <strong className="text-charcoal">Payment:</strong> We accept cash, QR pay and online bank transfer at the moment. Payment is due at the time of service. Corporate and insurance billing enquiries are welcome — please contact us via WhatsApp.
             </p>
           </div>
 

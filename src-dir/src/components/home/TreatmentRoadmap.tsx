@@ -17,28 +17,28 @@ const steps: Step[] = [
     number: '01',
     title: 'Initial Consultation',
     description:
-      'We take a thorough health history and listen to understand your unique situation and goals.',
+      'We take the time to understand you—your health history, current concerns, and goals. A thorough assessment is performed to identify what’s really going on beneath the surface.',
     icon: <ClipboardList className="w-6 h-6" />,
   },
   {
     number: '02',
-    title: 'Diagnosis & X-Ray',
+    title: 'X-Ray & First Adjustment',
     description:
-      'Detailed spinal analysis including X-rays to pinpoint the exact source of dysfunction.',
+      'Once we’ve pinpointed the root cause, we’ll walk you through a clear report of findings so you fully understand the problem and our plan. Only when you’re comfortable and ready will we begin your first correction.',
     icon: <ScanLine className="w-6 h-6" />,
   },
   {
     number: '03',
-    title: 'Gonstead Adjustment',
+    title: 'Standard Follow-Up',
     description:
-      'Precise, specific chiropractic corrections targeting only the vertebrae that need attention.',
+      'Healing takes time. Most cases require a series of adjustments to stabilise the problem area and support proper recovery. It’s rare for a single correction to undo the effects of days, months, or years of stress on the body.',
     icon: <Zap className="w-6 h-6" />,
   },
   {
     number: '04',
     title: 'Maintenance & Wellness',
     description:
-      'Ongoing care and lifestyle guidance to sustain your results and keep you thriving.',
+      'As your body improves, ongoing care and simple lifestyle guidance help you maintain your progress, prevent future issues, and continue functioning at your best.',
     icon: <Heart className="w-6 h-6" />,
   },
 ]
@@ -74,14 +74,14 @@ export default function TreatmentRoadmap() {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 relative z-10">
             {steps.map((step, i) => (
               <motion.div
                 key={step.number}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="flex flex-col items-center text-center md:items-center"
+                className="flex flex-col items-center md:items-start text-center md:text-left"
               >
                 {/* Icon circle */}
                 <div className="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center bg-charcoal text-gold mb-6 relative z-10">
@@ -110,7 +110,7 @@ export default function TreatmentRoadmap() {
         </div>
 
         <div className="text-center mt-16">
-          <BookButton variant="gold" size="lg" />
+          <BookButton variant="gold" size="lg" label="Book Now" />
         </div>
       </div>
     </section>

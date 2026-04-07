@@ -9,18 +9,18 @@ interface Doctor {
 
 const doctors: Doctor[] = [
   {
-    initials: 'DL',
-    name: 'Dr. Lucas',
-    credentials: 'B.Chiro, Cert. Gonstead (USA)',
+    initials: 'LC',
+    name: 'Lucas Chong',
+    credentials: 'BSc (Hons) Chiropractic',
     quote:
-      '"Every spine tells a story. My job is to listen, understand, and help write the next chapter — one free from pain."',
+      '\u201cIt brings me joy to see my community live a thriving life \u2014 empowering you to achieve what you set out to achieve, without being held back by poor health.\u201d',
   },
   {
-    initials: 'DR',
-    name: 'Dr. Ruth',
-    credentials: 'B.Chiro (Hons), M.ClinChiro',
+    initials: 'RL',
+    name: 'Ruth Lai',
+    credentials: 'BSc (Hons) Chiropractic',
     quote:
-      '"True healing begins when we address the cause, not just the symptom. That is the foundation of everything we do here."',
+      '\u201cI know what it feels like to grow up in pain and not understand why. Chiropractic gave me my life back \u2014 and now I get to do that for others. That never gets old.\u201d',
   },
 ]
 
