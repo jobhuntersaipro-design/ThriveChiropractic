@@ -249,7 +249,7 @@ export default function ChiropracticPage() {
           </div>
 
           <div className="text-center mt-16">
-            <BookButton size="lg" />
+            <BookButton size="lg" location="chiropractic" />
           </div>
         </div>
       </section>

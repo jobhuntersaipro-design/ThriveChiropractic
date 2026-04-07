@@ -105,7 +105,7 @@ export default function HeroSlider() {
 
             </p>
             <div className="flex flex-col sm:flex-row items-center md:items-start gap-3 sm:gap-5">
-              <BookButton variant="primary" size="lg" className="w-full sm:w-auto" />
+              <BookButton variant="primary" size="lg" className="w-full sm:w-auto" location="hero" />
               <Link
                 href="/chiropractic"
                 className="inline-flex items-center gap-2 px-4 py-3 sm:py-4 text-charcoal font-semibold hover:text-sage-dark transition-colors duration-200"

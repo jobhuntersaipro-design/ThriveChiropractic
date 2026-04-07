@@ -193,7 +193,7 @@ export default function FaqPage() {
             <p className="text-muted-green mb-6">
               Chat with us on WhatsApp or book an appointment and we&apos;ll answer everything in person.
             </p>
-            <BookButton size="md" />
+            <BookButton size="md" location="faq" />
           </div>
         </div>
       </section>

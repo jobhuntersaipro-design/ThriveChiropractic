@@ -110,7 +110,7 @@ export default function TreatmentRoadmap() {
         </div>
 
         <div className="text-center mt-16">
-          <BookButton variant="gold" size="lg" label="Book Now" />
+          <BookButton variant="gold" size="lg" label="Book Now" location="treatment-roadmap" />
         </div>
       </div>
     </section>

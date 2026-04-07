@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { track } from '@vercel/analytics'
 import { WHATSAPP_URL, CLINIC_NAME } from '@/lib/constants'
 
 const navLinks = [
@@ -37,6 +40,7 @@ export default function Footer() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => track('whatsapp_click', { location: 'footer' })}
               className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-[#25D366] transition-colors"
             >
               <svg

@@ -65,7 +65,7 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <BookButton variant="outline" size="md" className="w-full text-center mt-8" />
+              <BookButton variant="outline" size="md" className="w-full text-center mt-8" location="pricing" />
             </div>
 
             {/* First Treatment */}
@@ -88,7 +88,7 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <BookButton variant="outline" size="md" className="w-full text-center mt-8" />
+              <BookButton variant="outline" size="md" className="w-full text-center mt-8" location="pricing" />
             </div>
 
             {/* Follow-Up Treatment */}
@@ -111,7 +111,7 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <BookButton variant="outline" size="md" className="w-full text-center mt-8" />
+              <BookButton variant="outline" size="md" className="w-full text-center mt-8" location="pricing" />
             </div>
           </div>
 

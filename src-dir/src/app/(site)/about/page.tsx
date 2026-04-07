@@ -279,7 +279,7 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-10">
-            <BookButton size="lg" />
+            <BookButton size="lg" location="about" />
           </div>
         </div>
       </section>

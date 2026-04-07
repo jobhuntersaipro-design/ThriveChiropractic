@@ -1,5 +1,6 @@
 'use client'
 
+import { track } from '@vercel/analytics'
 import { WHATSAPP_URL } from '@/lib/constants'
 
 export default function WhatsAppFAB() {
@@ -8,6 +9,7 @@ export default function WhatsAppFAB() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => track('whatsapp_click', { location: 'fab' })}
       aria-label="Chat with us on WhatsApp"
       className="fixed bottom-6 right-6 z-50 group"
     >

@@ -44,7 +44,7 @@ export default function Home() {
             At Thrive Gonstead Chiropractic, we believe that great health is not the absence of pain — it&apos;s the freedom to live fully. Using the world-renowned Gonstead technique, we identify and correct the root causes of spinal dysfunction so you can thrive.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <BookButton variant="gold" size="lg" className="w-full sm:w-auto" />
+            <BookButton variant="gold" size="lg" className="w-full sm:w-auto" location="home-mission" />
             <Link
               href="/chiropractic"
               className="px-7 sm:px-9 py-3 sm:py-4 rounded-full border-2 border-white/30 text-white font-semibold text-base sm:text-lg hover:bg-white/10 transition-all duration-200 w-full sm:w-auto text-center"
@@ -130,7 +130,7 @@ export default function Home() {
           <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10">
             Join hundreds of patients who have found lasting relief and renewed vitality through Gonstead chiropractic care at Thrive.
           </p>
-          <BookButton variant="gold" size="lg" className="w-full sm:w-auto" />
+          <BookButton variant="gold" size="lg" className="w-full sm:w-auto" location="home-cta" />
         </div>
       </section>
 
@@ -253,7 +253,7 @@ export default function Home() {
                 />
               </div>
               <div className="text-center">
-                <BookButton size="lg" />
+                <BookButton size="lg" location="home-find-us" />
               </div>
             </div>
           </div>
