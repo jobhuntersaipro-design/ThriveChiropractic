@@ -100,9 +100,9 @@ export default function HeroSlider() {
               <span className="italic text-sage-dark">Life that follows</span>
             </h1>
             <p className="text-charcoal/70 text-base sm:text-lg leading-relaxed mb-6 sm:mb-10 max-w-lg mx-auto md:mx-0">
-              We identify and correct the root cause of spinal dysfunction using
-              the world-renowned Gonstead system — the gold standard in
-              chiropractic care for Bandar Rimbayu families.
+              Every body is different, and yours deserves to be treated that way. From your back and neck to your shoulders and knees, we take the time to find out what's really going on before recommending anything.
+              One of the few Gonstead clinics in Malaysia, serving families across Kota Kemuning, Puchong, Shah Alam, and the wider Klang Valley.
+
             </p>
             <div className="flex flex-col sm:flex-row items-center md:items-start gap-3 sm:gap-5">
               <BookButton variant="primary" size="lg" className="w-full sm:w-auto" />
