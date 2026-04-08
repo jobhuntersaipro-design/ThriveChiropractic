@@ -2,6 +2,7 @@ import Link from 'next/link'
 import HeroSlider from '@/components/home/HeroSlider'
 import ConditionsGrid from '@/components/home/ConditionsGrid'
 import TreatmentRoadmap from '@/components/home/TreatmentRoadmap'
+import GoogleReviews from '@/components/home/GoogleReviews'
 import BookButton from '@/components/shared/BookButton'
 import { CheckCircle, Award, Clock, MapPin, Phone, Mail } from 'lucide-react'
 import SectionHeading from '@/components/shared/SectionHeading'
@@ -115,7 +116,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section F — CTA Banner */}
+      {/* Section F — Google Reviews */}
+      <GoogleReviews />
+
+      {/* Section G — CTA Banner */}
       <section className="py-14 sm:py-20 md:py-24 bg-sage text-center">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <p className="uppercase text-white/70 text-xs sm:text-sm font-semibold tracking-widest mb-3 sm:mb-4">
