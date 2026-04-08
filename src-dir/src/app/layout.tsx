@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
+  verification: {
+    google: 'Mo5PpMvGlNO8Fhc_VP6zwece-Udw1lQGZCL64Dy1APg',
+  },
   title: 'Thrive Gonstead Chiropractic @ Rimbayu',
   description:
     'Thrive Gonstead Chiropractic offers expert Gonstead chiropractic care for back pain, neck pain, headaches, sciatica, disc issues, and more. Book your appointment today.',
