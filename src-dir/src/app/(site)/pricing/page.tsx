@@ -93,7 +93,7 @@ export default function PricingPage() {
 
             {/* Follow-Up Treatment */}
             <div className="flex flex-col rounded-2xl border border-border-warm bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-sage/40">
-              <p className="text-charcoal text-sm font-semibold uppercase tracking-widest mb-2">
+              <p className="text-sage text-sm font-semibold uppercase tracking-widest mb-2">
                 Standard Follow-Up
               </p>
               <p

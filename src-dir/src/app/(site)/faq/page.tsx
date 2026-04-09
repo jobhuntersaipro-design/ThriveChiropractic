@@ -6,10 +6,12 @@ import {
 } from '@/components/ui/accordion'
 import SectionHeading from '@/components/shared/SectionHeading'
 import BookButton from '@/components/shared/BookButton'
+import Link from 'next/link'
+import { ReactNode } from 'react'
 
 interface FaqItem {
   q: string
-  a: string
+  a: ReactNode
 }
 
 interface FaqCategory {
@@ -34,10 +36,6 @@ const categories: FaqCategory[] = [
       {
         q: 'What conditions can chiropractic help with?',
         a: 'Chiropractic care is effective for a wide range of conditions including back pain, neck pain, headaches, migraines, sciatica, disc bulge or herniation, sports injuries, postural problems, and more. We also provide care for pregnant women and children.',
-      },
-      {
-        q: 'How long does a chiropractic appointment take?',
-        a: 'Your initial consultation takes approximately 60 minutes — this includes a full health history, spinal assessment, X-ray analysis (where indicated), and your first adjustment. Follow-up sessions are approximately 30 minutes.',
       },
       {
         q: 'Do I need a referral to see a chiropractor?',
@@ -87,7 +85,7 @@ const categories: FaqCategory[] = [
     items: [
       {
         q: 'How much does a consultation cost?',
-        a: 'Our initial consultation is RM200, which includes a full spinal assessment, X-ray analysis (where indicated), and your first Gonstead adjustment. Follow-up sessions are RM160 per visit.',
+        a: <>Please visit <Link href="/pricing" className="text-sage font-semibold hover:underline transition-colors duration-200 hover:text-charcoal">pricing page</Link> for full details.</>,
       },
       {
         q: 'Do you offer packages or membership plans?',
@@ -121,7 +119,7 @@ const categories: FaqCategory[] = [
       },
       {
         q: 'Is chiropractic care safe during pregnancy?',
-        a: 'Yes, when performed by a trained practitioner. We use specialised techniques and positioning that are completely safe for pregnant patients at all stages. Chiropractic care during pregnancy can help manage pelvic pain, back discomfort, and prepare the pelvis for birth.',
+        a: 'We use a specialised technique (Webster technique, certified by ICPA) to prepare the pelvis for a smooth pregnancy and delivery process',
       },
       {
         q: 'Can children see a chiropractor?',

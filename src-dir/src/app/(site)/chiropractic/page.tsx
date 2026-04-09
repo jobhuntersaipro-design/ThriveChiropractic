@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { CheckCircle, Eye, Activity, FileText, Hand, BarChart2, ShieldCheck } from 'lucide-react'
 import BookButton from '@/components/shared/BookButton'
 import SectionHeading from '@/components/shared/SectionHeading'
@@ -86,23 +87,45 @@ export default function ChiropracticPage() {
           </h1>
           <div className="w-16 h-px bg-gold mx-auto mb-8" />
           <p className="text-white/80 text-lg leading-relaxed">
-            Chiropractic is a regulated healthcare discipline focused on the diagnosis, treatment, and prevention of mechanical disorders of the musculoskeletal system — with particular emphasis on the spine.
+            Chiropractic is more than just back pain relief. It is a comprehensive approach to health that focuses on the relationship between your brain and body via your spine and nervous system.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 mt-16 space-y-6 text-white/80 text-lg leading-relaxed text-left">
-          <p>
-            The spine houses and protects the spinal cord — the main communication highway between your brain and every organ, tissue, and cell in your body. When vertebrae shift out of their optimal position (subluxation), they can irritate or compress the surrounding nerves, disrupting this vital communication and leading to pain, dysfunction, and diminished overall health.
-          </p>
-          <p>
-            Chiropractic care addresses these subluxations through precise manual adjustments that restore proper spinal alignment, relieve nerve pressure, and allow the body to heal naturally — without the need for drugs or surgery.
-          </p>
-          <p>
-            Far from being a temporary pain-relief service, chiropractic aims to identify and correct the underlying causes of dysfunction so you can experience lasting improvements in health, mobility, and quality of life.
-          </p>
-          <p>
-            Modern chiropractic is supported by a growing body of scientific evidence and is now recognised by major healthcare organisations worldwide as a safe and effective treatment for a wide range of spinal and musculoskeletal conditions.
-          </p>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 mt-16 text-left">
+          <h3
+            className="text-2xl sm:text-3xl font-bold text-white mb-8"
+            style={{ fontFamily: 'var(--font-cormorant)' }}
+          >
+            Benefits
+          </h3>
+          <div className="space-y-6">
+            {[
+              {
+                title: 'You are not adjusted unnecessarily',
+                description: 'Joints that are functioning normally are not manipulated. This matters more than it sounds — unnecessary joint movement can create instability over time, which compounds rather than resolves the original problem.',
+              },
+              {
+                title: 'Your progress is trackable',
+                description: 'Because the assessment is systematic and X-ray based, changes can be measured objectively across visits. You are not relying on feel alone to know whether things are improving.',
+              },
+              {
+                title: 'The adjustment is case-specific',
+                description: 'The force, direction, and contact point of every Gonstead adjustment are determined by your X-rays and examination findings, not by a general protocol. Two patients with lower back pain may receive entirely different corrections.',
+              },
+              {
+                title: 'It works across a wide range of conditions',
+                description: 'The Gonstead method addresses both spinal and extremity complaints — shoulders, knees, hips, ankles — not just the spine. The same analytical rigour applies regardless of what structure is involved.',
+              },
+            ].map((benefit) => (
+              <div key={benefit.title} className="flex gap-4">
+                <CheckCircle className="w-5 h-5 text-gold shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-white font-semibold text-lg mb-1">{benefit.title}</h4>
+                  <p className="text-white/70 leading-relaxed">{benefit.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Pull quote */}
@@ -204,7 +227,17 @@ export default function ChiropracticPage() {
             subheading="X-ray analysis is a cornerstone of the Gonstead System, providing objective data that guides every adjustment we make."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start mt-8">
+          <div className="rounded-2xl overflow-hidden mb-12 mt-8">
+            <Image
+              src="/media/seeing_the_full_picture.jpg"
+              alt="Seeing the full picture — X-ray analysis at Thrive Gonstead Chiropractic"
+              width={1200}
+              height={600}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             <div className="space-y-8">
               {xrayReasons.map((reason) => (
                 <div key={reason.number} className="flex gap-5">

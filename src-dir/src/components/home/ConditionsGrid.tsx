@@ -134,10 +134,10 @@ export default function ConditionsGrid() {
             scrollChipIntoView(swiper.realIndex)
           }}
           breakpoints={{
-            640: { slidesPerView: 2.5, spaceBetween: 16 },
-            768: { slidesPerView: 3.5, spaceBetween: 20 },
-            1024: { slidesPerView: 4, spaceBetween: 20 },
-            1280: { slidesPerView: 4, spaceBetween: 24 },
+            640: { slidesPerView: 1.8, spaceBetween: 16 },
+            768: { slidesPerView: 2.5, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 20 },
+            1280: { slidesPerView: 3, spaceBetween: 24 },
           }}
           className="px-4 sm:px-6 lg:px-8"
         >
@@ -168,6 +168,9 @@ export default function ConditionsGrid() {
                         {condition.description}
                       </p>
                     </div>
+                    <button className="mt-4 px-6 py-2.5 rounded-full border border-charcoal text-charcoal text-sm font-medium hover:bg-charcoal hover:text-white transition-colors duration-300 self-start">
+                      Learn More
+                    </button>
                   </div>
                 </div>
               </div>

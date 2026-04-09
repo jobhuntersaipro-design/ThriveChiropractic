@@ -4,6 +4,7 @@ import ConditionsGrid from '@/components/home/ConditionsGrid'
 import TreatmentRoadmap from '@/components/home/TreatmentRoadmap'
 import GoogleReviews from '@/components/home/GoogleReviews'
 import BookButton from '@/components/shared/BookButton'
+import Image from 'next/image'
 import { CheckCircle, Award, Clock, MapPin, Phone, Mail } from 'lucide-react'
 import SectionHeading from '@/components/shared/SectionHeading'
 
@@ -28,7 +29,10 @@ export default function Home() {
       {/* Section A — Hero Slider */}
       <HeroSlider />
 
-      {/* Section B — Intro Strip */}
+      {/* Section B — Conditions Slider */}
+      <ConditionsGrid />
+
+      {/* Section C — Intro Strip */}
       <section className="py-14 sm:py-20 md:py-24 bg-charcoal text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <p className="uppercase text-gold text-xs sm:text-sm font-semibold tracking-widest mb-3 sm:mb-4">
@@ -56,9 +60,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section C — Conditions Slider */}
-      <ConditionsGrid />
-
       {/* Section D — Treatment Roadmap */}
       <TreatmentRoadmap />
 
@@ -74,11 +75,11 @@ export default function Home() {
                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-charcoal mb-4 sm:mb-6 leading-tight"
                 style={{ fontFamily: 'var(--font-cormorant)' }}
               >
-                Why Gonstead?
+                The Gonstead Approach
               </h2>
               <div className="w-16 h-px bg-gold mb-6 sm:mb-8" />
               <p className="text-muted-green leading-relaxed mb-8">
-                The Gonstead System is considered the gold standard in chiropractic care. Developed by Dr. Clarence Gonstead over decades of research and practice, it uses five distinct criteria to precisely identify spinal misalignments — and correct only those that truly need attention.
+                The Gonstead System is considered the gold standard in chiropractic care. Developed by Dr. Clarence Gonstead over decades of research and practice, it uses five distinct criteria to precisely identify spinal subluxations and correct only those that truly need attention.
               </p>
               <ul className="space-y-4">
                 {gonsteadPoints.map((point, i) => (
@@ -90,12 +91,13 @@ export default function Home() {
               </ul>
             </div>
             <div className="rounded-2xl sm:rounded-3xl bg-sage/10 border border-border-warm p-6 sm:p-10 text-center">
-              <span
-                className="text-8xl font-bold text-sage/20 block mb-4"
-                style={{ fontFamily: 'var(--font-cormorant)' }}
-              >
-                G
-              </span>
+              <Image
+                src="/media/Gonstead Logo.svg"
+                alt="Gonstead System logo"
+                width={120}
+                height={120}
+                className="mx-auto mb-4"
+              />
               <h3
                 className="text-3xl font-bold text-charcoal mb-4"
                 style={{ fontFamily: 'var(--font-cormorant)' }}
