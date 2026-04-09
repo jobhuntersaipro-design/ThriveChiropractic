@@ -12,7 +12,6 @@ interface Condition {
   name: string
   description: string
   image: string
-  zoomOut?: boolean
 }
 
 const conditions: Condition[] = [
@@ -21,21 +20,18 @@ const conditions: Condition[] = [
     description:
       'The leading cause of workplace disability, back pain is extremely prevalent and one of the main injuries we treat at Thrive Chiropractic. Chiropractic care can address pain, stiffness, and poor range-of-motion — three of the most common symptoms experienced with back pain. Back pain can be debilitating; but it can be successfully treated with the right expertise.',
     image: '/images/hero/back-pain.jpg',
-    zoomOut: true,
   },
   {
     name: 'Neck Pain',
     description:
       'Most neck pain is born out of work, sports, or poor posture. As we spend more time looking at our computers and phones than ever before, neck pain is only becoming more common across different age groups. Thrive Chiropractic will find the main cause of your neck and shoulder pain, manually manipulate the area to relieve pain, and provide a treatment plan that corrects misalignments.',
     image: '/images/hero/neck-pain.jpg',
-    zoomOut: true,
   },
   {
     name: 'Headaches',
     description:
       'Tension headaches and cervicogenic headaches are often caused by stress, poor posture, and spinal misalignment. Rather than masking the pain with medication, chiropractic care targets the root cause — restoring proper alignment to your cervical spine, relieving muscle tension, and improving blood flow so you can find lasting, drug-free relief.',
     image: '/images/hero/headaches.jpg',
-    zoomOut: true,
   },
   {
     name: 'Sciatica / Hip Pain',
@@ -153,7 +149,7 @@ export default function ConditionsGrid() {
               >
                 <div className="rounded-2xl overflow-hidden border border-border-warm bg-white h-full flex flex-col">
                   {/* Image */}
-                  <div className={`relative ${condition.zoomOut ? 'aspect-[16/9]' : 'aspect-[4/3]'} shrink-0 overflow-hidden`}>
+                  <div className="relative aspect-[4/3] shrink-0 overflow-hidden">
                     <Image
                       src={condition.image}
                       alt={condition.name}
