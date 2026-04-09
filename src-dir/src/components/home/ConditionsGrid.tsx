@@ -147,14 +147,14 @@ export default function ConditionsGrid() {
                 className="p-2 cursor-pointer"
                 onClick={() => handleChipClick(index)}
               >
-                <div className="rounded-2xl overflow-hidden border border-border-warm bg-white h-[530px] flex flex-col">
+                <div className="rounded-2xl overflow-hidden border border-border-warm bg-white h-full flex flex-col">
                   {/* Image */}
-                  <div className="relative h-56 shrink-0">
+                  <div className="relative aspect-[4/3] shrink-0">
                     <Image
                       src={condition.image}
                       alt={condition.name}
                       fill
-                      className="object-cover"
+                      className="object-cover object-center"
                       sizes="(max-width: 640px) 55vw, (max-width: 768px) 30vw, 25vw"
                     />
                   </div>
