@@ -12,6 +12,7 @@ interface Condition {
   name: string
   description: string
   image: string
+  imageScale?: number
 }
 
 const conditions: Condition[] = [
@@ -20,18 +21,21 @@ const conditions: Condition[] = [
     description:
       'The leading cause of workplace disability, back pain is extremely prevalent and one of the main injuries we treat at Thrive Chiropractic. Chiropractic care can address pain, stiffness, and poor range-of-motion — three of the most common symptoms experienced with back pain. Back pain can be debilitating; but it can be successfully treated with the right expertise.',
     image: '/images/hero/back-pain.jpg',
+    imageScale: 0.7,
   },
   {
     name: 'Neck Pain',
     description:
       'Most neck pain is born out of work, sports, or poor posture. As we spend more time looking at our computers and phones than ever before, neck pain is only becoming more common across different age groups. Thrive Chiropractic will find the main cause of your neck and shoulder pain, manually manipulate the area to relieve pain, and provide a treatment plan that corrects misalignments.',
     image: '/images/hero/neck-pain.jpg',
+    imageScale: 0.7,
   },
   {
     name: 'Headaches',
     description:
       'Tension headaches and cervicogenic headaches are often caused by stress, poor posture, and spinal misalignment. Rather than masking the pain with medication, chiropractic care targets the root cause — restoring proper alignment to your cervical spine, relieving muscle tension, and improving blood flow so you can find lasting, drug-free relief.',
     image: '/images/hero/headaches.jpg',
+    imageScale: 0.7,
   },
   {
     name: 'Sciatica / Hip Pain',
@@ -156,6 +160,7 @@ export default function ConditionsGrid() {
                       fill
                       className="object-cover object-center"
                       sizes="(max-width: 640px) 55vw, (max-width: 768px) 30vw, 25vw"
+                      style={condition.imageScale ? { transform: `scale(${condition.imageScale})` } : undefined}
                     />
                   </div>
                   {/* Text content */}
