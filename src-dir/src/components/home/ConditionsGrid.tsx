@@ -149,7 +149,7 @@ export default function ConditionsGrid() {
               >
                 <div className="rounded-2xl overflow-hidden border border-border-warm bg-white h-full flex flex-col">
                   {/* Image */}
-                  <div className="relative aspect-[4/3] shrink-0 overflow-hidden">
+                  <div className="relative aspect-square shrink-0 overflow-hidden">
                     <Image
                       src={condition.image}
                       alt={condition.name}
