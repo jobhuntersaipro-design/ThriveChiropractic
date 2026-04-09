@@ -55,19 +55,19 @@ const conditions: Condition[] = [
     name: 'Posture & Scoliosis',
     description:
       'Poor posture and scoliosis can lead to chronic pain, fatigue, and reduced quality of life. We assess your spinal curvature thoroughly and create a tailored correction programme. Through targeted adjustments and postural guidance, we help improve alignment, reduce discomfort, and build the foundation for long-term spinal health.',
-    image: '/images/blog/gonstead-adjustment.jpg',
+    image: '/images/hero/posture.jpg',
   },
   {
     name: 'Pregnancy Care',
     description:
       'Pregnancy places unique demands on the spine and pelvis. Our Webster-certified adjustments help maintain pelvic balance, reduce lower back pain, and support a more comfortable pregnancy at every stage. Safe and gentle, our approach is tailored specifically for expectant mothers to promote optimal foetal positioning and an easier delivery.',
-    image: '/images/blog/pregnancy-care.jpg',
+    image: '/images/hero/pregnant_care.jpg',
   },
   {
     name: 'Paediatric Care',
     description:
       'Children benefit from chiropractic care just as much as adults. From birth trauma to the bumps and falls of growing up, spinal misalignments can occur early. Our specialised, gentle adjustments for infants and children support healthy development, improve posture, and address common childhood issues like colic, sleep difficulties, and growing pains.',
-    image: '/images/blog/children-checkup.jpg',
+    image: '/images/hero/paediatric.jpg',
   },
 ]
 
