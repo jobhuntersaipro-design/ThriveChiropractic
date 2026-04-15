@@ -1,26 +1,27 @@
+import Image from 'next/image'
 import SectionHeading from '@/components/shared/SectionHeading'
 
 interface Doctor {
-  initials: string
   name: string
   credentials: string
   quote: string
+  image: string
 }
 
 const doctors: Doctor[] = [
   {
-    initials: 'LC',
     name: 'Lucas Chong',
     credentials: 'BSc (Hons) Chiropractic',
     quote:
       '\u201cIt brings me joy to see my community live a thriving life \u2014 empowering you to achieve what you set out to achieve, without being held back by poor health.\u201d',
+    image: '/images/team/lp.jpg',
   },
   {
-    initials: 'RL',
     name: 'Ruth Lai',
     credentials: 'BSc (Hons) Chiropractic',
     quote:
       '\u201cI know what it feels like to grow up in pain and not understand why. Chiropractic gave me my life back \u2014 and now I get to do that for others. That never gets old.\u201d',
+    image: '/images/team/ruth.jpg',
   },
 ]
 
@@ -37,14 +38,14 @@ export default function ChiropractorsIntro() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
           {doctors.map((doc) => (
             <div key={doc.name} className="flex flex-col items-center text-center">
-              {/* Circular placeholder */}
-              <div className="w-32 h-32 rounded-full bg-sage flex items-center justify-center mb-6 shadow-lg">
-                <span
-                  className="text-3xl font-bold text-white"
-                  style={{ fontFamily: 'var(--font-cormorant)' }}
-                >
-                  {doc.initials}
-                </span>
+              <div className="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg relative">
+                <Image
+                  src={doc.image}
+                  alt={doc.name}
+                  fill
+                  className="object-cover"
+                  sizes="128px"
+                />
               </div>
 
               <h3

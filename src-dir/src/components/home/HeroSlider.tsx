@@ -13,12 +13,12 @@ import {
 import BookButton from '@/components/shared/BookButton'
 
 const images = [
-  '/images/showcase/thrive_1.webp',
-  '/images/showcase/thrive_2.webp',
-  '/images/showcase/thrive_3.jpg',
-  '/images/showcase/thrive_4.jpg',
-  '/images/showcase/thrive_5.jpg',
-  '/images/showcase/thrive_6.jpg',
+  '/images/showcase/main_1.jpg',
+  '/images/showcase/main_2.jpg',
+  '/images/showcase/main_3.jpg',
+  '/images/showcase/main_4.jpg',
+  '/images/showcase/main_5.jpg',
+  '/images/showcase/main_6.jpg',
 ]
 
 function CarouselDots() {

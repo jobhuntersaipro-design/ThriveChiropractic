@@ -1,33 +1,44 @@
 import Image from 'next/image'
-import { CheckCircle, Eye, Activity, FileText, Hand, BarChart2, ShieldCheck } from 'lucide-react'
+import { CheckCircle, Eye, Activity, FileText, Hand, BarChart2, ShieldCheck, ClipboardList } from 'lucide-react'
 import BookButton from '@/components/shared/BookButton'
 import SectionHeading from '@/components/shared/SectionHeading'
 
 const gonsteadFeatures = [
   {
+    icon: <ClipboardList className="w-6 h-6" />,
+    title: 'History Taking',
+    description: 'A thorough review of the patient\'s health history, symptoms, and lifestyle to establish a complete clinical picture before assessment.',
+    image: '/images/gonstead/history_taking.jpg',
+  },
+  {
     icon: <Eye className="w-6 h-6" />,
     title: 'Visualisation',
     description: 'Trained observation of posture, gait, and spinal movement patterns.',
+    image: '/images/gonstead/visualization.jpg',
   },
   {
     icon: <Activity className="w-6 h-6" />,
     title: 'Instrumentation',
     description: 'The Nervoscope detects temperature differentials indicating nerve irritation.',
+    image: '/images/gonstead/instrumentation.jpg',
   },
   {
     icon: <Hand className="w-6 h-6" />,
     title: 'Static Palpation',
     description: 'Manual assessment of the spine to identify swelling, tenderness, and abnormalities.',
+    image: '/images/gonstead/static_palpation.jpg',
   },
   {
     icon: <BarChart2 className="w-6 h-6" />,
     title: 'Motion Palpation',
     description: 'Evaluating spinal joint movement to identify restricted segments.',
+    image: '/images/gonstead/motion_palpation.jpg',
   },
   {
     icon: <FileText className="w-6 h-6" />,
     title: 'X-Ray Analysis',
     description: 'Full-spine X-rays to confirm findings and guide precise adjustments.',
+    image: '/images/gonstead/xray_analysis.jpg',
   },
 ]
 
@@ -184,16 +195,27 @@ export default function ChiropracticPage() {
             {gonsteadFeatures.map((feature) => (
               <div
                 key={feature.title}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-gold/40 transition-colors"
+                className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-gold/40 transition-colors"
               >
-                <div className="text-gold mb-3">{feature.icon}</div>
-                <h3
-                  className="text-xl font-bold text-white mb-2"
-                  style={{ fontFamily: 'var(--font-cormorant)' }}
-                >
-                  {feature.title}
-                </h3>
-                <p className="text-white/60 text-sm leading-relaxed">{feature.description}</p>
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="text-gold mb-3">{feature.icon}</div>
+                  <h3
+                    className="text-xl font-bold text-white mb-2"
+                    style={{ fontFamily: 'var(--font-cormorant)' }}
+                  >
+                    {feature.title}
+                  </h3>
+                  <p className="text-white/60 text-sm leading-relaxed">{feature.description}</p>
+                </div>
               </div>
             ))}
           </div>

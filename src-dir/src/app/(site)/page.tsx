@@ -105,7 +105,7 @@ export default function Home() {
                 The Gonstead System
               </h3>
               <p className="text-muted-green leading-relaxed">
-                Five criteria: Visualisation, Instrumentation, Static Palpation, Motion Palpation, and X-Ray Analysis — for the most thorough assessment in chiropractic.
+                Six criteria: History Taking, Visualisation, Instrumentation, Static Palpation, Motion Palpation, and X-Ray Analysis — for the most thorough assessment in chiropractic.
               </p>
               <Link
                 href="/chiropractic#gonstead"

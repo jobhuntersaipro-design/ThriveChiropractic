@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Heart, Target, Award, Users, MapPin, Phone } from 'lucide-react'
 import BookButton from '@/components/shared/BookButton'
 import SectionHeading from '@/components/shared/SectionHeading'
@@ -33,10 +34,17 @@ const values = [
 
 const teamMembers = [
   {
-    initials: 'LC',
     name: 'Lucas Chong',
     role: 'Chiropractor',
-    credentials: 'BSc (Hons) Chiropractic',
+    credentials: [
+      'Bachelor of Chiropractic Science \u2013 International Medical University (IMU), Malaysia',
+      'Council on Chiropractic Education Australasia (CCEA) certified',
+      'Active member of the Gonstead Chiropractic Society Australia (GCSA)',
+      'Active member of Association of Chiropractic Malaysia (ACM)',
+      'T&CM Registered Chiropractor (Malaysia)',
+      'AHPRA Registered Chiropractor (Australia)',
+    ],
+    image: '/images/team/lp.jpg',
     quote:
       '\u201cIt brings me joy to see my community live a thriving life \u2014 empowering you to achieve what you set out to achieve, without being held back by poor health.\u201d',
     bio: [
@@ -46,10 +54,19 @@ const teamMembers = [
     ],
   },
   {
-    initials: 'RL',
     name: 'Ruth Lai',
     role: 'Chiropractor',
-    credentials: 'BSc (Hons) Chiropractic',
+    credentials: [
+      'Bachelor of Chiropractic Science \u2013 International Medical University (IMU), Malaysia',
+      'Webster ICPA Certified (Pregnancy)',
+      'Council on Chiropractic Education Australasia (CCEA) certified',
+      'Active member of the Gonstead Chiropractic Society Australia (GCSA)',
+      'Active member of Association of Chiropractic Malaysia (ACM)',
+      'Active member of International Chiropractic Pediatric Association (ICPA)',
+      'T&CM Registered Chiropractor (Malaysia)',
+      'AHPRA Registered Chiropractor (Australia)',
+    ],
+    image: '/images/team/ruth.jpg',
     quote:
       '\u201cI know what it feels like to grow up in pain and not understand why. Chiropractic gave me my life back \u2014 and now I get to do that for others. That never gets old.\u201d',
     bio: [
@@ -146,15 +163,15 @@ export default function AboutPage() {
                 key={member.name}
                 className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-10 items-start"
               >
-                {/* Portrait placeholder */}
                 <div className="flex flex-col items-center text-center md:sticky md:top-28">
-                  <div className="w-40 h-40 rounded-full bg-sage flex items-center justify-center shadow-lg mb-4">
-                    <span
-                      className="text-4xl font-bold text-white"
-                      style={{ fontFamily: 'var(--font-cormorant)' }}
-                    >
-                      {member.initials}
-                    </span>
+                  <div className="w-40 h-40 rounded-full overflow-hidden shadow-lg mb-4 relative">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                      sizes="160px"
+                    />
                   </div>
                   <h3
                     className="text-2xl font-bold text-charcoal"
@@ -163,7 +180,14 @@ export default function AboutPage() {
                     {member.name}
                   </h3>
                   <p className="text-sage text-sm font-medium">{member.role}</p>
-                  <p className="text-muted-green text-sm mt-1">{member.credentials}</p>
+                  <ul className="mt-3 space-y-1 text-left">
+                    {member.credentials.map((c, i) => (
+                      <li key={i} className="flex items-start gap-1.5 text-muted-green text-xs leading-relaxed">
+                        <span className="text-sage mt-0.5 shrink-0">&bull;</span>
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 {/* Quote & Bio */}

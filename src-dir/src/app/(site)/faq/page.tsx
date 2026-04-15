@@ -49,7 +49,7 @@ const categories: FaqCategory[] = [
     items: [
       {
         q: 'What is the Gonstead technique?',
-        a: 'The Gonstead System is widely regarded as the most specific and thorough chiropractic technique available. Developed by Dr. Clarence Gonstead, it uses five criteria — Visualisation, Instrumentation, Static Palpation, Motion Palpation, and X-ray Analysis — to precisely identify spinal misalignments and correct only those that need adjustment.',
+        a: 'The Gonstead System is widely regarded as the most specific and thorough chiropractic technique available. Developed by Dr. Clarence Gonstead, it uses six criteria — History Taking, Visualisation, Instrumentation, Static Palpation, Motion Palpation, and X-ray Analysis — to precisely identify spinal misalignments and correct only those that need adjustment.',
       },
       {
         q: 'How is Gonstead different from general chiropractic?',
