@@ -1,6 +1,6 @@
-const HASHNODE_GQL = 'https://gql.hashnode.com'
+const HASHNODE_GQL = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT ?? 'https://gql.hashnode.com'
 
-const HASHNODE_HOST = process.env.NEXT_PUBLIC_HASHNODE_HOST ?? ''
+const HASHNODE_HOST = process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_HOST ?? ''
 
 interface HashnodeTag {
   name: string
