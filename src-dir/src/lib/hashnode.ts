@@ -60,11 +60,23 @@ async function gql<T>(query: string, variables?: Record<string, unknown>): Promi
     next: { revalidate: 60 },
   })
 
+  const text = await res.text()
+
   if (!res.ok) {
-    throw new Error(`Hashnode API error: ${res.status} ${res.statusText}`)
+    throw new Error(
+      `Hashnode API error: endpoint=${HASHNODE_GQL} host=${HASHNODE_HOST} status=${res.status} body=${text.slice(0, 300)}`,
+    )
   }
 
-  const json = await res.json()
+  let json: { data?: T; errors?: { message: string }[] }
+  try {
+    json = JSON.parse(text)
+  } catch {
+    throw new Error(
+      `Hashnode returned non-JSON: endpoint=${HASHNODE_GQL} host=${HASHNODE_HOST} body=${text.slice(0, 300)}`,
+    )
+  }
+
   if (json.errors) {
     throw new Error(`Hashnode GraphQL error: ${json.errors[0]?.message}`)
   }
