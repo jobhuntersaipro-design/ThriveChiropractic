@@ -47,6 +47,11 @@ export default async function BlogPostPage({
               priority
               className="object-cover"
               sizes="100vw"
+              style={{
+                objectPosition: post.coverFocalPoint,
+                transform: post.coverZoom !== 1 ? `scale(${post.coverZoom})` : undefined,
+                transformOrigin: post.coverFocalPoint,
+              }}
             />
           )}
           <div className="absolute inset-0 bg-linear-to-t from-charcoal/80 via-charcoal/40 to-charcoal/20" />

@@ -70,9 +70,35 @@ export default config({
         coverImage: fields.image({
           label: 'Cover image',
           description:
-            'Landscape photo works best (wider than tall). IMPORTANT: rename the file on your computer first — use only lowercase letters, numbers, and hyphens (e.g. "spine-health.jpg"). Spaces or parentheses in filenames break image display.',
+            'Recommended size: 1600x840 pixels, landscape (wider than tall). Use JPG or PNG under 500KB. IMPORTANT: rename the file on your computer first — use only lowercase letters, numbers, and hyphens (e.g. "spine-health.jpg"). Spaces or parentheses in filenames break image display.',
           directory: 'public/images/blog',
           publicPath: '/images/blog/',
+        }),
+        coverFocalPoint: fields.select({
+          label: 'Cover focus area',
+          description:
+            'Which part of the cover image to keep visible if it has to be cropped. Leave as Center for most images.',
+          options: [
+            { label: 'Center', value: 'center' },
+            { label: 'Top', value: 'top' },
+            { label: 'Bottom', value: 'bottom' },
+            { label: 'Left', value: 'left' },
+            { label: 'Right', value: 'right' },
+          ],
+          defaultValue: 'center',
+        }),
+        coverZoom: fields.select({
+          label: 'Cover zoom',
+          description:
+            'Enlarge the cover image to fill the area better. Use 100% for properly-sized photos. Zoom in if the image looks too small or has too much empty space.',
+          options: [
+            { label: '100% (no zoom)', value: '1' },
+            { label: '110%', value: '1.1' },
+            { label: '125%', value: '1.25' },
+            { label: '150%', value: '1.5' },
+            { label: '200%', value: '2' },
+          ],
+          defaultValue: '1',
         }),
         content: fields.markdoc({
           label: 'Content',
