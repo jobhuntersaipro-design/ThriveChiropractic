@@ -33,7 +33,7 @@ export default function PostCard({ post }: { post: PostCardProps }) {
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
         <div className="absolute bottom-3 left-3 flex flex-wrap gap-2">
           {post.tags.slice(0, 2).map((tag) => (
             <span

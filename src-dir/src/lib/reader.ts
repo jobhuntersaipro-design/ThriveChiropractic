@@ -1,2 +1,2 @@
-export { getPosts, getPostBySlug } from './hashnode'
-export type { HashnodePost } from './hashnode'
+export { getPosts, getPostBySlug } from './posts'
+export type { Post } from './posts'
