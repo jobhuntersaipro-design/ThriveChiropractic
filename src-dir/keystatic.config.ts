@@ -68,9 +68,9 @@ export default config({
           },
         ),
         coverImage: fields.image({
-          label: 'Cover image',
+          label: 'Cover image (1600×840 px landscape recommended)',
           description:
-            'Recommended size: 1600x840 pixels, landscape (wider than tall). Use JPG or PNG under 500KB. IMPORTANT: rename the file on your computer first — use only lowercase letters, numbers, and hyphens (e.g. "spine-health.jpg"). Spaces or parentheses in filenames break image display.',
+            'JPG or PNG under 500KB. Rename the file on your computer first — only lowercase letters, numbers, and hyphens (e.g. "spine-health.jpg"). Spaces or parentheses in the filename break image display.',
           directory: 'public/images/blog',
           publicPath: '/images/blog/',
         }),
