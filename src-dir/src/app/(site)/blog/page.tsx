@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getPosts } from '@/lib/hashnode'
+import { getPosts } from '@/lib/posts'
 import PostCard from '@/components/blog/PostCard'
 
 export const metadata: Metadata = {
@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage() {
-  const { posts } = await getPosts(50)
+  const posts = await getPosts()
 
   return (
     <>
       {/* Hero */}
-      <section className="pt-24 sm:pt-28 md:pt-32 pb-10 sm:pb-14 md:pb-16 bg-gradient-to-b from-sage to-sage-dark text-center">
+      <section className="pt-24 sm:pt-28 md:pt-32 pb-10 sm:pb-14 md:pb-16 bg-linear-to-b from-sage to-sage-dark text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <p className="uppercase text-white/70 text-xs sm:text-sm font-semibold tracking-widest mb-3 sm:mb-4">
             From Our Practitioners
@@ -38,19 +38,7 @@ export default async function BlogPage() {
           {posts.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {posts.map((post) => (
-                <PostCard
-                  key={post.id}
-                  post={{
-                    slug: post.slug,
-                    title: post.title,
-                    excerpt: post.brief,
-                    author: post.author.name,
-                    date: post.publishedAt,
-                    tags: post.tags.map((t) => t.name),
-                    coverImage: post.coverImage?.url ?? '',
-                    readingTime: post.readTimeInMinutes,
-                  }}
-                />
+                <PostCard key={post.slug} post={post} />
               ))}
             </div>
           ) : (
