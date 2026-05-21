@@ -18,16 +18,31 @@ export interface Post {
 
 const reader = createReader(process.cwd(), keystaticConfig)
 
+interface TagLike {
+  name: string
+  attributes?: Record<string, unknown>
+  children?: unknown[]
+}
+
+function isTag(value: unknown): value is TagLike {
+  return (
+    value !== null &&
+    typeof value === 'object' &&
+    typeof (value as { name?: unknown }).name === 'string' &&
+    Array.isArray((value as { children?: unknown }).children)
+  )
+}
+
 const tableTag: Schema = {
   render: 'table',
   attributes: {},
   transform(node, config) {
-    const children = node.transformChildren(config)
+    const children = node.transformChildren(config) as unknown[]
+
     const rows: unknown[][] = []
     let current: unknown[] = []
     for (const child of children) {
-      const isSeparator = child instanceof Tag && child.name === 'hr'
-      if (isSeparator) {
+      if (isTag(child) && child.name === 'hr') {
         if (current.length) rows.push(current)
         current = []
       } else {
@@ -39,15 +54,17 @@ const tableTag: Schema = {
 
     const renderRow = (rowChildren: unknown[], cellTag: 'th' | 'td') => {
       const cells: Tag[] = []
-      for (const child of rowChildren) {
-        if (child instanceof Tag && child.name === 'ul') {
-          for (const li of child.children) {
-            if (li instanceof Tag && li.name === 'li') {
-              cells.push(new Tag(cellTag, {}, li.children))
-            }
+      const visit = (items: unknown[]) => {
+        for (const child of items) {
+          if (!isTag(child)) continue
+          if (child.name === 'li') {
+            cells.push(new Tag(cellTag, {}, (child.children ?? []) as Tag[]))
+          } else if (child.children && child.children.length) {
+            visit(child.children)
           }
         }
       }
+      visit(rowChildren)
       return new Tag('tr', {}, cells)
     }
 
@@ -85,6 +102,15 @@ function nodeToPlainText(node: unknown): string {
   return ''
 }
 
+function readTitle(entryTitle: unknown, fallback: string): string {
+  if (typeof entryTitle === 'string') return entryTitle
+  if (entryTitle && typeof entryTitle === 'object') {
+    const name = (entryTitle as { name?: unknown }).name
+    if (typeof name === 'string') return name
+  }
+  return fallback
+}
+
 async function loadPost(slug: string): Promise<Post | null> {
   const entry = await reader.collections.posts.read(slug, { resolveLinkedFiles: true })
   if (!entry) return null
@@ -96,7 +122,7 @@ async function loadPost(slug: string): Promise<Post | null> {
 
   return {
     slug,
-    title: entry.title.name,
+    title: readTitle(entry.title, slug),
     excerpt: entry.excerpt,
     author: entry.author,
     date: entry.date ?? '',
