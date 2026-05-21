@@ -33,39 +33,75 @@ function isTag(value: unknown): value is TagLike {
   )
 }
 
+interface RawNode {
+  type?: string
+  children?: RawNode[]
+  attributes?: { content?: string; [k: string]: unknown }
+  [k: string]: unknown
+}
+
+function collectItemsAndSeparators(
+  nodes: RawNode[] | undefined,
+  out: Array<{ kind: 'item' | 'hr'; node?: RawNode }>,
+): void {
+  if (!nodes) return
+  for (const n of nodes) {
+    if (!n || typeof n !== 'object') continue
+    if (n.type === 'item') {
+      out.push({ kind: 'item', node: n })
+    } else if (n.type === 'hr') {
+      out.push({ kind: 'hr' })
+    } else if (Array.isArray(n.children)) {
+      collectItemsAndSeparators(n.children, out)
+    }
+  }
+}
+
 const tableTag: Schema = {
   render: 'table',
   attributes: {},
   transform(node, config) {
-    const children = node.transformChildren(config) as unknown[]
+    const collected: Array<{ kind: 'item' | 'hr'; node?: RawNode }> = []
+    collectItemsAndSeparators(
+      (node as unknown as RawNode).children,
+      collected,
+    )
 
-    const rows: unknown[][] = []
-    let current: unknown[] = []
-    for (const child of children) {
-      if (isTag(child) && child.name === 'hr') {
+    const rows: RawNode[][] = []
+    let current: RawNode[] = []
+    for (const entry of collected) {
+      if (entry.kind === 'hr') {
         if (current.length) rows.push(current)
         current = []
-      } else {
-        current.push(child)
+      } else if (entry.node) {
+        current.push(entry.node)
       }
     }
     if (current.length) rows.push(current)
     if (rows.length === 0) return new Tag('table', {}, [])
 
-    const renderRow = (rowChildren: unknown[], cellTag: 'th' | 'td') => {
-      const cells: Tag[] = []
-      const visit = (items: unknown[]) => {
-        for (const child of items) {
-          if (!isTag(child)) continue
-          if (child.name === 'li') {
-            cells.push(new Tag(cellTag, {}, (child.children ?? []) as Tag[]))
-          } else if (child.children && child.children.length) {
-            visit(child.children)
+    const transformItem = (item: RawNode): unknown[] => {
+      const fakeNode = {
+        children: item.children ?? [],
+        transformChildren(cfg: unknown) {
+          // delegate to Markdoc on the inner children
+          const out: unknown[] = []
+          for (const c of item.children ?? []) {
+            const transformed = Markdoc.transform(c as never, cfg as never)
+            if (Array.isArray(transformed)) out.push(...transformed)
+            else if (transformed != null) out.push(transformed)
           }
-        }
+          return out
+        },
       }
-      visit(rowChildren)
-      return new Tag('tr', {}, cells)
+      return fakeNode.transformChildren(config)
+    }
+
+    const renderRow = (cells: RawNode[], cellTag: 'th' | 'td') => {
+      const cellTags = cells.map(
+        (cell) => new Tag(cellTag, {}, transformItem(cell) as never),
+      )
+      return new Tag('tr', {}, cellTags)
     }
 
     const elements: Tag[] = []
