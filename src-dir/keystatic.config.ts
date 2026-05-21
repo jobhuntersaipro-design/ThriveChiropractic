@@ -32,7 +32,7 @@ export default config({
             { label: 'Draft', value: 'draft' },
             { label: 'Published', value: 'published' },
           ],
-          defaultValue: 'draft',
+          defaultValue: 'published',
         }),
         excerpt: fields.text({
           label: 'Excerpt',
