@@ -80,7 +80,7 @@ export default async function BlogPostPage({
       <section className="py-10 sm:py-14 md:py-16 bg-cream">
         <article className="max-w-3xl mx-auto px-4 sm:px-6">
           <div
-            className="prose prose-lg prose-headings:font-bold prose-headings:text-charcoal prose-p:text-muted-green prose-p:leading-relaxed prose-a:text-sage prose-a:underline prose-blockquote:border-l-4 prose-blockquote:border-gold prose-blockquote:pl-5 prose-blockquote:italic prose-img:rounded-2xl max-w-none"
+            className="prose prose-lg prose-headings:font-bold prose-headings:text-charcoal prose-p:text-muted-green prose-p:leading-relaxed prose-a:text-sage prose-a:underline prose-blockquote:border-l-4 prose-blockquote:border-gold prose-blockquote:pl-5 prose-blockquote:italic prose-img:rounded-2xl prose-table:w-full prose-table:border-collapse prose-th:border prose-th:border-border-warm prose-th:bg-sage/10 prose-th:text-charcoal prose-th:px-4 prose-th:py-2 prose-th:text-left prose-td:border prose-td:border-border-warm prose-td:px-4 prose-td:py-2 prose-td:text-muted-green max-w-none"
             style={{ fontFamily: 'var(--font-dm-sans)' }}
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
