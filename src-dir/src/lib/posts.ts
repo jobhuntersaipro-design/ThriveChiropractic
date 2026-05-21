@@ -1,6 +1,6 @@
 import 'server-only'
 import { createReader } from '@keystatic/core/reader'
-import Markdoc from '@markdoc/markdoc'
+import Markdoc, { Tag, type Schema } from '@markdoc/markdoc'
 import keystaticConfig from '../../keystatic.config'
 
 export interface Post {
@@ -17,6 +17,54 @@ export interface Post {
 }
 
 const reader = createReader(process.cwd(), keystaticConfig)
+
+const tableTag: Schema = {
+  render: 'table',
+  attributes: {},
+  transform(node, config) {
+    const children = node.transformChildren(config)
+    const rows: unknown[][] = []
+    let current: unknown[] = []
+    for (const child of children) {
+      const isSeparator = child instanceof Tag && child.name === 'hr'
+      if (isSeparator) {
+        if (current.length) rows.push(current)
+        current = []
+      } else {
+        current.push(child)
+      }
+    }
+    if (current.length) rows.push(current)
+    if (rows.length === 0) return new Tag('table', {}, [])
+
+    const renderRow = (rowChildren: unknown[], cellTag: 'th' | 'td') => {
+      const cells: Tag[] = []
+      for (const child of rowChildren) {
+        if (child instanceof Tag && child.name === 'ul') {
+          for (const li of child.children) {
+            if (li instanceof Tag && li.name === 'li') {
+              cells.push(new Tag(cellTag, {}, li.children))
+            }
+          }
+        }
+      }
+      return new Tag('tr', {}, cells)
+    }
+
+    const elements: Tag[] = []
+    elements.push(new Tag('thead', {}, [renderRow(rows[0], 'th')]))
+    if (rows.length > 1) {
+      elements.push(
+        new Tag('tbody', {}, rows.slice(1).map((r) => renderRow(r, 'td'))),
+      )
+    }
+    return new Tag('table', {}, elements)
+  },
+}
+
+const markdocConfig = {
+  tags: { table: tableTag },
+}
 
 const WORDS_PER_MINUTE = 200
 
@@ -42,7 +90,7 @@ async function loadPost(slug: string): Promise<Post | null> {
   if (!entry) return null
 
   const contentNode = entry.content.node
-  const transformed = Markdoc.transform(contentNode)
+  const transformed = Markdoc.transform(contentNode, markdocConfig)
   const contentHtml = Markdoc.renderers.html(transformed)
   const plainText = nodeToPlainText(contentNode)
 

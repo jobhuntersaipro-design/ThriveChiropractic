@@ -23,11 +23,19 @@ export default config({
         title: fields.slug({
           name: {
             label: 'Title',
+            description:
+              'The headline of the post. Keep under 70 characters for best SEO.',
             validation: { isRequired: true, length: { min: 1, max: 200 } },
+          },
+          slug: {
+            description:
+              'The URL part — auto-filled from the title. Only lowercase letters, numbers, and hyphens. Avoid changing after publishing (it breaks the existing URL).',
           },
         }),
         status: fields.select({
           label: 'Status',
+          description:
+            'Published posts appear on the website. Drafts are saved but hidden from visitors.',
           options: [
             { label: 'Draft', value: 'draft' },
             { label: 'Published', value: 'published' },
@@ -36,7 +44,8 @@ export default config({
         }),
         excerpt: fields.text({
           label: 'Excerpt',
-          description: 'Short summary shown on the blog index card.',
+          description:
+            'Short summary shown on the blog index card. 1-3 sentences works best.',
           multiline: true,
           validation: { length: { min: 1, max: 400 } },
         }),
@@ -53,16 +62,22 @@ export default config({
           fields.text({ label: 'Tag', validation: { length: { min: 1, max: 40 } } }),
           {
             label: 'Tags',
+            description:
+              'Topic labels (e.g. "Sciatica", "Posture"). Click + Add for each one.',
             itemLabel: (props) => props.value,
           },
         ),
         coverImage: fields.image({
           label: 'Cover image',
+          description:
+            'Landscape photo works best (wider than tall). IMPORTANT: rename the file on your computer first — use only lowercase letters, numbers, and hyphens (e.g. "spine-health.jpg"). Spaces or parentheses in filenames break image display.',
           directory: 'public/images/blog',
           publicPath: '/images/blog/',
         }),
         content: fields.markdoc({
           label: 'Content',
+          description:
+            'Write the post body. Use the toolbar buttons (bold, headings, lists, images, etc.) — do not type raw markdown like ![](url). For images, click the picture icon in the toolbar; rename image files to use only lowercase, numbers, and hyphens before uploading.',
           options: {
             image: {
               directory: 'public/images/blog',
