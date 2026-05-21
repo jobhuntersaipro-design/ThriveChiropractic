@@ -70,35 +70,9 @@ export default config({
         coverImage: fields.image({
           label: 'Cover image (1600×840 px landscape recommended)',
           description:
-            'JPG or PNG under 500KB. Rename the file on your computer first — only lowercase letters, numbers, and hyphens (e.g. "spine-health.jpg"). Spaces or parentheses in the filename break image display.',
+            'JPG or PNG under 500KB. Crop to 1600×840 before uploading (preview.app or photopea.com works). Rename the file on your computer first — only lowercase letters, numbers, and hyphens (e.g. "spine-health.jpg"). Spaces or parentheses in the filename break image display.',
           directory: 'public/images/blog',
           publicPath: '/images/blog/',
-        }),
-        coverFocalPoint: fields.select({
-          label: 'Cover focus area',
-          description:
-            'Which part of the cover image to keep visible if it has to be cropped. Leave as Center for most images.',
-          options: [
-            { label: 'Center', value: 'center' },
-            { label: 'Top', value: 'top' },
-            { label: 'Bottom', value: 'bottom' },
-            { label: 'Left', value: 'left' },
-            { label: 'Right', value: 'right' },
-          ],
-          defaultValue: 'center',
-        }),
-        coverZoom: fields.select({
-          label: 'Cover zoom',
-          description:
-            'Enlarge the cover image to fill the area better. Use 100% for properly-sized photos. Zoom in if the image looks too small or has too much empty space.',
-          options: [
-            { label: '100% (no zoom)', value: '1' },
-            { label: '110%', value: '1.1' },
-            { label: '125%', value: '1.25' },
-            { label: '150%', value: '1.5' },
-            { label: '200%', value: '2' },
-          ],
-          defaultValue: '1',
         }),
         content: fields.markdoc({
           label: 'Content',

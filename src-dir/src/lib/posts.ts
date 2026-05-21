@@ -3,8 +3,6 @@ import { createReader } from '@keystatic/core/reader'
 import Markdoc from '@markdoc/markdoc'
 import keystaticConfig from '../../keystatic.config'
 
-export type FocalPoint = 'center' | 'top' | 'bottom' | 'left' | 'right'
-
 export interface Post {
   slug: string
   title: string
@@ -13,8 +11,6 @@ export interface Post {
   date: string
   tags: string[]
   coverImage: string
-  coverFocalPoint: FocalPoint
-  coverZoom: number
   status: 'draft' | 'published'
   readingTime: number
   contentHtml: string
@@ -59,11 +55,6 @@ async function loadPost(slug: string): Promise<Post | null> {
   const contentHtml = Markdoc.renderers.html(transformed)
   const plainText = nodeToPlainText(contentNode)
 
-  const focalPoint = (entry as { coverFocalPoint?: string }).coverFocalPoint
-  const zoomRaw = (entry as { coverZoom?: string }).coverZoom
-  const zoomParsed = zoomRaw ? Number.parseFloat(zoomRaw) : 1
-  const coverZoom = Number.isFinite(zoomParsed) && zoomParsed > 0 ? zoomParsed : 1
-
   return {
     slug,
     title: readTitle(entry.title, slug),
@@ -72,8 +63,6 @@ async function loadPost(slug: string): Promise<Post | null> {
     date: entry.date ?? '',
     tags: [...entry.tags],
     coverImage: entry.coverImage ?? '',
-    coverFocalPoint: (focalPoint as FocalPoint) ?? 'center',
-    coverZoom,
     status: entry.status as 'draft' | 'published',
     readingTime: estimateReadingTime(plainText),
     contentHtml,
