@@ -1,7 +1,21 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Heart, Target, Award, Users, MapPin, Phone } from 'lucide-react'
 import BookButton from '@/components/shared/BookButton'
 import SectionHeading from '@/components/shared/SectionHeading'
+
+export const metadata: Metadata = {
+  title: 'About Our Clinic in Bandar Rimbayu',
+  description:
+    'Learn about Thrive Gonstead Chiropractic — our mission, values, and commitment to precise, patient-first Gonstead chiropractic care in Bandar Rimbayu, Selangor.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Our Clinic in Bandar Rimbayu',
+    description:
+      'Learn about Thrive Gonstead Chiropractic — our mission, values, and commitment to precise, patient-first Gonstead chiropractic care.',
+    url: '/about',
+  },
+}
 
 const missionPoints = [
   {
@@ -82,7 +96,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-20 md:pb-24 bg-gradient-to-b from-sage to-sage-dark text-center">
+      <section className="pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-20 md:pb-24 bg-linear-to-b from-sage to-sage-dark text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <p className="uppercase text-white/70 text-xs sm:text-sm font-semibold tracking-widest mb-3 sm:mb-4">
             Our Story

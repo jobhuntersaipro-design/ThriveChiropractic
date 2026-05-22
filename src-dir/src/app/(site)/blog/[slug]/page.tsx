@@ -3,7 +3,14 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowLeft } from 'lucide-react'
-import { getPostBySlug } from '@/lib/posts'
+import { getPostBySlug, getPosts } from '@/lib/posts'
+
+const SITE_URL = 'https://www.thrivechiropractic.com.my'
+
+export async function generateStaticParams() {
+  const posts = await getPosts()
+  return posts.map((post) => ({ slug: post.slug }))
+}
 
 export async function generateMetadata({
   params,
@@ -13,9 +20,36 @@ export async function generateMetadata({
   const { slug } = await params
   const post = await getPostBySlug(slug)
   if (!post) return { title: 'Post Not Found' }
+
+  const url = `/blog/${slug}`
+  const hasCover = Boolean(post.coverImage)
+  const ogImage = post.coverImage || '/images/logo/thrive-logo-words.png'
+  const ogImageMeta = hasCover
+    ? { url: ogImage, width: 1200, height: 630, alt: post.title }
+    : { url: ogImage, width: 512, height: 512, alt: 'Thrive Gonstead Chiropractic logo' }
+
   return {
-    title: `${post.title} — Thrive Gonstead Chiropractic`,
+    title: post.title,
     description: post.excerpt,
+    authors: [{ name: post.author }],
+    keywords: post.tags,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'article',
+      url,
+      title: post.title,
+      description: post.excerpt,
+      publishedTime: post.date,
+      authors: [post.author],
+      tags: post.tags,
+      images: [ogImageMeta],
+    },
+    twitter: {
+      card: hasCover ? 'summary_large_image' : 'summary',
+      title: post.title,
+      description: post.excerpt,
+      images: [ogImage],
+    },
   }
 }
 
@@ -34,8 +68,35 @@ export default async function BlogPostPage({
     year: 'numeric',
   })
 
+  const postUrl = `${SITE_URL}/blog/${slug}`
+  const imageUrl = post.coverImage
+    ? `${SITE_URL}${post.coverImage}`
+    : `${SITE_URL}/images/showcase/main_1.jpg`
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+    headline: post.title,
+    description: post.excerpt,
+    image: [imageUrl],
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { '@type': 'Person', name: post.author },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Thrive Gonstead Chiropractic',
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/showcase/favicon-512.png` },
+    },
+    keywords: post.tags.join(', '),
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       {/* Cover image header */}
       <section className="relative pt-24">
         <div className="relative h-85 md:h-105">

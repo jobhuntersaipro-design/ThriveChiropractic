@@ -3,9 +3,19 @@ import { getPosts } from '@/lib/posts'
 import PostCard from '@/components/blog/PostCard'
 
 export const metadata: Metadata = {
-  title: 'Blog — Thrive Gonstead Chiropractic',
+  title: 'Chiropractic Blog — Health & Spinal Care Insights',
   description:
-    'Health insights and spinal care education from our practitioners.',
+    'Health articles and spinal care education from our Gonstead chiropractic practitioners in Bandar Rimbayu, Selangor. Learn about back pain, posture, and whole-body wellness.',
+  alternates: {
+    canonical: '/blog',
+    types: { 'application/rss+xml': '/feed.xml' },
+  },
+  openGraph: {
+    title: 'Chiropractic Blog — Health & Spinal Care Insights',
+    description:
+      'Health articles and spinal care education from our Gonstead chiropractic practitioners.',
+    url: '/blog',
+  },
 }
 
 export default async function BlogPage() {

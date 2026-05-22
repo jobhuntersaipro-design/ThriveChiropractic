@@ -1,7 +1,21 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CheckCircle, CreditCard } from 'lucide-react'
 import BookButton from '@/components/shared/BookButton'
 import SectionHeading from '@/components/shared/SectionHeading'
+
+export const metadata: Metadata = {
+  title: 'Pricing & Fees — Chiropractic Consultation',
+  description:
+    'Transparent Gonstead chiropractic pricing in Bandar Rimbayu, Selangor: Initial Consultation RM100, First Treatment RM200, Standard Follow-Up RM160. Cash, QR pay, and bank transfer accepted.',
+  alternates: { canonical: '/pricing' },
+  openGraph: {
+    title: 'Pricing & Fees — Chiropractic Consultation',
+    description:
+      'Transparent Gonstead chiropractic pricing. Initial Consultation RM100 · First Treatment RM200 · Follow-Up RM160.',
+    url: '/pricing',
+  },
+}
 
 const consultIncludes = [
   'Comprehensive history taking',

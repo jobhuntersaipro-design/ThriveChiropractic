@@ -1,7 +1,21 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { CheckCircle, Eye, Activity, FileText, Hand, BarChart2, ShieldCheck, ClipboardList } from 'lucide-react'
 import BookButton from '@/components/shared/BookButton'
 import SectionHeading from '@/components/shared/SectionHeading'
+
+export const metadata: Metadata = {
+  title: 'What Is Gonstead Chiropractic? The Technique Explained',
+  description:
+    'Discover the Gonstead chiropractic system — a precise, evidence-based approach using history taking, visualisation, instrumentation, palpation, and X-ray analysis to identify and correct the specific source of spinal dysfunction.',
+  alternates: { canonical: '/chiropractic' },
+  openGraph: {
+    title: 'What Is Gonstead Chiropractic? The Technique Explained',
+    description:
+      'A precise, evidence-based chiropractic system using instrumentation, palpation, and X-ray analysis to find the specific source of spinal dysfunction.',
+    url: '/chiropractic',
+  },
+}
 
 const gonsteadFeatures = [
   {
@@ -84,7 +98,7 @@ export default function ChiropracticPage() {
       {/* Section 1 — What is Chiropractic */}
       <section
         id="what-is-chiropractic"
-        className="pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-20 md:pb-24 bg-gradient-to-b from-sage to-sage-dark"
+        className="pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-20 md:pb-24 bg-linear-to-b from-sage to-sage-dark"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="uppercase text-white/70 text-sm font-semibold tracking-widest mb-4">
@@ -197,7 +211,7 @@ export default function ChiropracticPage() {
                 key={feature.title}
                 className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-gold/40 transition-colors"
               >
-                <div className="relative aspect-[4/3] w-full">
+                <div className="relative aspect-4/3 w-full">
                   <Image
                     src={feature.image}
                     alt={feature.title}

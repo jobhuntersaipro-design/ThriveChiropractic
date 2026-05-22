@@ -245,12 +245,12 @@ export default function Home() {
 
             {/* Right column — Google Map */}
             <div className="lg:col-span-3 flex flex-col gap-6">
-              <div className="rounded-2xl overflow-hidden border border-border-warm flex-1 min-h-[350px] sm:min-h-[450px]">
+              <div className="rounded-2xl overflow-hidden border border-border-warm flex-1 min-h-87.5 sm:min-h-112.5">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.5!2d101.5448643!3d2.9473265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb1010cae254b%3A0xd1865c2a54958996!2sThrive%20Gonstead%20Chiropractic%20%40%20Rimbayu!5e0!3m2!1sen!2smy!4v1"
                   width="100%"
                   height="100%"
-                  className="w-full h-full min-h-[350px] sm:min-h-[450px]"
+                  className="w-full h-full min-h-87.5 sm:min-h-112.5"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"

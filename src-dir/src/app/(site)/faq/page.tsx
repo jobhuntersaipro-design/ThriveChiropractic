@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import {
   Accordion,
   AccordionContent,
@@ -8,6 +9,19 @@ import SectionHeading from '@/components/shared/SectionHeading'
 import BookButton from '@/components/shared/BookButton'
 import Link from 'next/link'
 import { ReactNode } from 'react'
+
+export const metadata: Metadata = {
+  title: 'Chiropractic FAQ — Common Questions Answered',
+  description:
+    'Answers to common questions about Gonstead chiropractic care, the technique, X-ray analysis, pricing, booking, and the conditions we treat in Bandar Rimbayu, Selangor.',
+  alternates: { canonical: '/faq' },
+  openGraph: {
+    title: 'Chiropractic FAQ — Common Questions Answered',
+    description:
+      'Answers to common questions about Gonstead chiropractic care — the technique, X-ray analysis, pricing, and conditions treated.',
+    url: '/faq',
+  },
+}
 
 interface FaqItem {
   q: string
