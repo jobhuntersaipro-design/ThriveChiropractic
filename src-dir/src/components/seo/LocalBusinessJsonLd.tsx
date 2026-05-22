@@ -2,9 +2,10 @@ const SITE_URL = 'https://www.thrivechiropractic.com.my'
 
 const schema = {
   '@context': 'https://schema.org',
-  '@type': 'Chiropractor',
+  '@type': ['MedicalBusiness', 'LocalBusiness'],
   '@id': `${SITE_URL}#chiropractor`,
   name: 'Thrive Gonstead Chiropractic',
+  medicalSpecialty: 'Chiropractic',
   description:
     'Specialist Gonstead chiropractic clinic in Bandar Rimbayu, Selangor, offering precise spinal adjustments for back pain, neck pain, sciatica, headaches, and posture correction.',
   url: SITE_URL,

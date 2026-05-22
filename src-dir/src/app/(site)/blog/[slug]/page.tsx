@@ -72,6 +72,7 @@ export default async function BlogPostPage({
   const imageUrl = post.coverImage
     ? `${SITE_URL}${post.coverImage}`
     : `${SITE_URL}/images/showcase/main_1.jpg`
+  const isoDate = post.date ? `${post.date}T00:00:00+08:00` : ''
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -80,13 +81,17 @@ export default async function BlogPostPage({
     headline: post.title,
     description: post.excerpt,
     image: [imageUrl],
-    datePublished: post.date,
-    dateModified: post.date,
-    author: { '@type': 'Person', name: post.author },
+    datePublished: isoDate,
+    dateModified: isoDate,
+    author: {
+      '@type': 'Organization',
+      name: post.author,
+      url: `${SITE_URL}/about`,
+    },
     publisher: {
       '@type': 'Organization',
       name: 'Thrive Gonstead Chiropractic',
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/showcase/favicon-512.png` },
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/logo/thrive-logo-words.png` },
     },
     keywords: post.tags.join(', '),
   }
