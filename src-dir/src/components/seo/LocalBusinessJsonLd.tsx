@@ -2,7 +2,7 @@ const SITE_URL = 'https://www.thrivechiropractic.com.my'
 
 const schema = {
   '@context': 'https://schema.org',
-  '@type': ['MedicalBusiness', 'LocalBusiness'],
+  '@type': 'MedicalBusiness',
   '@id': `${SITE_URL}#chiropractor`,
   name: 'Thrive Gonstead Chiropractic',
   medicalSpecialty: 'Chiropractic',
