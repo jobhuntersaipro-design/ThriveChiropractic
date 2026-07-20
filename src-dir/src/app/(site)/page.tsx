@@ -3,6 +3,7 @@ import HeroSlider from '@/components/home/HeroSlider'
 import ConditionsGrid from '@/components/home/ConditionsGrid'
 import TreatmentRoadmap from '@/components/home/TreatmentRoadmap'
 import GoogleReviews from '@/components/home/GoogleReviews'
+import BlogShowcase from '@/components/home/BlogShowcase'
 import BookButton from '@/components/shared/BookButton'
 import Image from 'next/image'
 import { CheckCircle, Award, Clock, MapPin, Phone, Mail } from 'lucide-react'
@@ -140,7 +141,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section G — Location & Contact */}
+      {/* Section H — Blog Showcase */}
+      <BlogShowcase />
+
+      {/* Section I — Location & Contact */}
       <section id="find-us" className="py-14 sm:py-20 md:py-24 bg-cream scroll-mt-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
