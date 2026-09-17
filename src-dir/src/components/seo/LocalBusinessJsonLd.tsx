@@ -38,13 +38,13 @@ const schema = {
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday'],
+      dayOfWeek: ['Tuesday', 'Thursday', 'Friday'],
       opens: '10:00',
-      closes: '20:00',
+      closes: '19:00',
     },
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Friday', 'Saturday', 'Sunday'],
+      dayOfWeek: ['Saturday', 'Sunday'],
       opens: '10:00',
       closes: '18:00',
     },

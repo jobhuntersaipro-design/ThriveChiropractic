@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Heart, Target, Award, Users, MapPin, Phone } from 'lucide-react'
 import BookButton from '@/components/shared/BookButton'
 import SectionHeading from '@/components/shared/SectionHeading'
+import { OPENING_HOURS } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'About Our Clinic in Bandar Rimbayu',
@@ -295,9 +296,11 @@ export default function AboutPage() {
               <Phone className="w-6 h-6 text-sage mb-3" />
               <h3 className="font-semibold text-charcoal mb-2">Opening Hours</h3>
               <div className="text-muted-green text-base leading-relaxed space-y-1">
-                <p>Tuesday – Thursday: 10am – 8pm</p>
-                <p>Friday – Sunday: 10am – 6pm</p>
-                <p>Monday: Closed</p>
+                {OPENING_HOURS.map(({ day, hours }) => (
+                  <p key={day}>
+                    {day}: {hours}
+                  </p>
+                ))}
               </div>
             </div>
           </div>

@@ -8,6 +8,7 @@ import BookButton from '@/components/shared/BookButton'
 import Image from 'next/image'
 import { CheckCircle, Award, Clock, MapPin, Phone, Mail } from 'lucide-react'
 import SectionHeading from '@/components/shared/SectionHeading'
+import { OPENING_HOURS } from '@/lib/constants'
 
 const gonsteadPoints = [
   {
@@ -229,18 +230,16 @@ export default function Home() {
                   <div>
                     <h3 className="font-semibold text-charcoal mb-2">Opening Hours</h3>
                     <div className="text-muted-green text-sm leading-relaxed space-y-1">
-                      <div className="flex justify-between gap-6">
-                        <span>Tuesday – Thursday</span>
-                        <span className="font-medium text-charcoal">10am – 8pm</span>
-                      </div>
-                      <div className="flex justify-between gap-6">
-                        <span>Friday – Sunday</span>
-                        <span className="font-medium text-charcoal">10am – 6pm</span>
-                      </div>
-                      <div className="flex justify-between gap-6">
-                        <span>Monday</span>
-                        <span className="font-medium text-charcoal/50">Closed</span>
-                      </div>
+                      {OPENING_HOURS.map(({ day, hours }) => (
+                        <div key={day} className="flex justify-between gap-6">
+                          <span>{day}</span>
+                          <span
+                            className={`font-medium ${hours === 'Closed' ? 'text-charcoal/50' : 'text-charcoal'}`}
+                          >
+                            {hours}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
