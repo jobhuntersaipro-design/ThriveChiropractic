@@ -1,7 +1,7 @@
 'use client'
 
 import { track } from '@vercel/analytics'
-import { BOOKING_URL } from '@/lib/constants'
+import { WHATSAPP_URL } from '@/lib/constants'
 
 interface BookButtonProps {
   variant?: 'primary' | 'outline' | 'gold'
@@ -32,7 +32,7 @@ export default function BookButton({
 }: BookButtonProps) {
   return (
     <a
-      href={BOOKING_URL}
+      href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => track('book_appointment_click', { location })}

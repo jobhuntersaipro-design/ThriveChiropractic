@@ -53,7 +53,7 @@ const categories: FaqCategory[] = [
       },
       {
         q: 'Do I need a referral to see a chiropractor?',
-        a: 'No referral is needed. You can book directly with us via our online booking system or WhatsApp. We welcome walk-ins when availability allows, but we recommend booking in advance to secure your preferred time.',
+        a: 'No referral is needed. You can book directly with us via WhatsApp. We welcome walk-ins when availability allows, but we recommend booking in advance to secure your preferred time.',
       },
     ],
   },
@@ -111,7 +111,7 @@ const categories: FaqCategory[] = [
       },
       {
         q: 'How do I book an appointment?',
-        a: 'You can book directly through our online booking system by clicking the "Book an Appointment" button on this website. Alternatively, you can reach us via WhatsApp and our team will assist you with scheduling.',
+        a: 'Click the "Book an Appointment" button on this website to message us on WhatsApp, and our team will assist you with scheduling.',
       },
       {
         q: 'What is your cancellation policy?',
