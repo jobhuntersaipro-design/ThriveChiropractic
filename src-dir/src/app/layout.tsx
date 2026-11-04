@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'Mo5PpMvGlNO8Fhc_VP6zwece-Udw1lQGZCL64Dy1APg',
+    google: ['Mo5PpMvGlNO8Fhc_VP6zwece-Udw1lQGZCL64Dy1APg', '1qKrUuh7c7NusHFMTR-B0cr4DQuf-ptpa2TSN5EqSv6o'],
   },
   icons: {
     icon: [
