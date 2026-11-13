@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import SectionHeading from '@/components/shared/SectionHeading'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -168,9 +169,12 @@ export default function ConditionsGrid() {
                         {condition.description}
                       </p>
                     </div>
-                    <button className="mt-4 px-6 py-2.5 rounded-full border border-charcoal text-charcoal text-sm font-medium hover:bg-charcoal hover:text-white transition-colors duration-300 self-start">
+                    <Link
+                      href="/blog"
+                      className="mt-4 px-6 py-2.5 rounded-full border border-charcoal text-charcoal text-sm font-medium hover:bg-charcoal hover:text-white transition-colors duration-300 self-start"
+                    >
                       Learn More
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
